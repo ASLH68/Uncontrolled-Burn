@@ -329,6 +329,44 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6584607326466286359, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_text
+      value: 'Uncontrolled Burn is pain.
+
+
+        Esc - Exit Game
+
+        WASD
+        - Move
+
+        Shift (Hold) - Sprint
+
+        Space - Jump
+
+        Mouse
+        - Look Around'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584607326529062989, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584607326529062991, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584607326529062991, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.19215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584607326529062991, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6584607326545856585, guid: b511e8cac05049546808e3ac3414492a,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -348,6 +386,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584607326735173022, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_text
+      value: Uncontrolled Burn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584607326866341307, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584607326866341307, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.19279066
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584607326866341307, guid: b511e8cac05049546808e3ac3414492a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584607327027587375, guid: b511e8cac05049546808e3ac3414492a,
         type: 3}
