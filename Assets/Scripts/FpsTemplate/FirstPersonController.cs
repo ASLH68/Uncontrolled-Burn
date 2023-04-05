@@ -11,6 +11,8 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		public static FirstPersonController main;
+
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -74,6 +76,8 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		public bool IsControllable;
+
 		private bool IsCurrentDeviceMouse
 		{
 			get
@@ -88,6 +92,14 @@ namespace StarterAssets
 
 		private void Awake()
 		{
+			if(main == null)
+			{
+				main = this;
+			}
+			else
+			{
+				Destroy(this);
+			}
 			// get a reference to our main camera
 			if (_mainCamera == null)
 			{
@@ -97,7 +109,8 @@ namespace StarterAssets
 
 		private void Start()
 		{
-			_controller = GetComponent<CharacterController>();
+            IsControllable = true;
+            _controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 			_playerInput = GetComponent<PlayerInput>();
@@ -112,14 +125,20 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			JumpAndGravity();
-			GroundedCheck();
-			Move();
+			if (IsControllable)
+			{
+				JumpAndGravity();
+				GroundedCheck();
+				Move();
+			}
 		}
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			if (IsControllable)
+			{
+				CameraRotation();
+			}
 		}
 
 		private void GroundedCheck()
