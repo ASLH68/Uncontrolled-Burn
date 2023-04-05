@@ -1337,10 +1337,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   internalObject: 
-  _mainCamera: {fileID: 0}
   _layerMask:
+    serializedVersion: 2
     m_Bits: 1024
-  _castedObject: {fileID: 0}
 --- !u!4 &1289608055218242592
 Transform:
   m_ObjectHideFlags: 0
