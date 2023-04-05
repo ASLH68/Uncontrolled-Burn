@@ -6,18 +6,33 @@ using UnityEngine.InputSystem;
 
 public class PlayerAbility : MonoBehaviour
 {
-    PlayerActions actions;
+    PlayerControls actions;
+
+    private int currentAbility;
 
     // Start is called before the first frame update
     void Start()
     {
-        actions = new PlayerActions();
+        actions = new PlayerControls();
         actions.Enable();
     }
 
     private void AbilitySwap(int swap)
     {
+        currentAbility = swap;
+    }
 
+    private void AbilityUse()
+    {
+        switch(currentAbility)
+        {
+            case 0:
+                break;
+                case 1:
+                break;
+            case 2:
+                break;
+        }
     }
 
     private void OnEnable()
