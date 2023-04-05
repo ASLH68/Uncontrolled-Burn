@@ -6,7 +6,6 @@
 // Brief Description : This document controls raycasting objects.
                        References: https://www.youtube.com/watch?v=7ybz28Py0-U
                                    https://www.youtube.com/watch?v=cUf7FnNqv7U
-
 *****************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
@@ -46,7 +45,10 @@ public class CastingToObject : MonoBehaviour
         else 
         {
             // Resets current object when stopped hovering
-            ResetObject();
+            if (_castedObject != null)
+            {
+                ResetObject();
+            }       
         }
     }
 
