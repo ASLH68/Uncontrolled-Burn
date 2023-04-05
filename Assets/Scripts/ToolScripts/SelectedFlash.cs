@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name :         SelectFlash.cs
+// Author :            Andrea Swihart-DeCoster
+// Creation Date :     April 5th, 2023
+//
+// Brief Description : This document controls the flashing of the wall segments.
+                       References: https://www.youtube.com/watch?v=7ybz28Py0-U
+*****************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,27 +46,11 @@ public class SelectedFlash : MonoBehaviour
     {
         StartCoroutine(FlashObject());
     }
-
-/*    private void OnMouseOver()
-    {
-        selectedObject = GameObject.Find(CastingToObject.selectedObject);
-        lookingAtObject = true;
-        if(!startedFlashing)
-        {
-            startedFlashing = true;
-            StartCoroutine(FlashObject());
-        }
-    }
-
-    private void OnMouseExit()
-    {
-        startedFlashing = false;
-        lookingAtObject = false;
-
-        StopCoroutine(FlashObject());
-        selectedObject.GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 255);
-    }*/
     
+    /// <summary>
+    /// Flashes the wall object
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator FlashObject()
     {
         while (startedFlashing)
