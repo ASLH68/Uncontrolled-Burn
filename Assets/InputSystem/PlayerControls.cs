@@ -62,6 +62,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AbilityUse"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ebc9171-5de7-45d4-82ef-1a63f0088001"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,6 +139,50 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""ItemScroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7377616b-9a10-4382-aca2-5edd2630e350"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbilityUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""e73fad5a-b59f-4b89-8be0-92cf9817f241"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbilityUse"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""e77e8a3c-7643-490c-b96d-f3e3dbd98e80"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbilityUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""780b13fa-213d-429c-83c9-d88294cf8d12"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbilityUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -142,6 +195,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Item2 = m_Player.FindAction("Item2", throwIfNotFound: true);
         m_Player_Item3 = m_Player.FindAction("Item3", throwIfNotFound: true);
         m_Player_ItemScroll = m_Player.FindAction("ItemScroll", throwIfNotFound: true);
+        m_Player_AbilityUse = m_Player.FindAction("AbilityUse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +259,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Item2;
     private readonly InputAction m_Player_Item3;
     private readonly InputAction m_Player_ItemScroll;
+    private readonly InputAction m_Player_AbilityUse;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -213,6 +268,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Item2 => m_Wrapper.m_Player_Item2;
         public InputAction @Item3 => m_Wrapper.m_Player_Item3;
         public InputAction @ItemScroll => m_Wrapper.m_Player_ItemScroll;
+        public InputAction @AbilityUse => m_Wrapper.m_Player_AbilityUse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -234,6 +290,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ItemScroll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemScroll;
                 @ItemScroll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemScroll;
                 @ItemScroll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemScroll;
+                @AbilityUse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityUse;
+                @AbilityUse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityUse;
+                @AbilityUse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityUse;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -250,6 +309,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ItemScroll.started += instance.OnItemScroll;
                 @ItemScroll.performed += instance.OnItemScroll;
                 @ItemScroll.canceled += instance.OnItemScroll;
+                @AbilityUse.started += instance.OnAbilityUse;
+                @AbilityUse.performed += instance.OnAbilityUse;
+                @AbilityUse.canceled += instance.OnAbilityUse;
             }
         }
     }
@@ -260,5 +322,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnItem2(InputAction.CallbackContext context);
         void OnItem3(InputAction.CallbackContext context);
         void OnItemScroll(InputAction.CallbackContext context);
+        void OnAbilityUse(InputAction.CallbackContext context);
     }
 }
