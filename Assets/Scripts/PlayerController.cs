@@ -1,3 +1,10 @@
+/*****************************************************************************
+// File Name :         PlayerController.cs
+// Author :            Andrea Swihart-DeCoster
+// Creation Date :     April 6th, 2023
+//
+// Brief Description : This document controls the Player's actions.
+*****************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

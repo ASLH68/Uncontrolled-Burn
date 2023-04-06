@@ -41,8 +41,15 @@ public class CastingToObject : MonoBehaviour
                 {
                     ResetObject();
                 }
+
                 SelectObject();
                 HighlightObject();
+
+                // Use the flame resistance of applicable when they press LMB
+                if (Input.GetMouseButtonDown(0) && !_castedObject.CompareTag("FireResistant")) 
+                {
+                    FlameResistance.main.UseItem(_castedObject);
+                }
             }
             else
             {
