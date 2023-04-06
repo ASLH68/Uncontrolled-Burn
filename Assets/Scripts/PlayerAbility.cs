@@ -8,23 +8,55 @@ public class PlayerAbility : MonoBehaviour
 {
     PlayerControls actions;
 
-    [SerializeField] private int currentAbility = 0;
+    // Ability Variables
+    [SerializeField] private int currentAbility = 0; // It's serialized so the player can start with X ability
     private int numOfAbilities = 3;
 
-    // Start is called before the first frame update
+    //private GameObject usedItem;
+
+    //[SerializeField] private GameObject flamethrower;   
+    //[SerializeField] private GameObject ax;
+    //[SerializeField] private GameObject foam;
+
+    [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
+
+    // I'm not sure if I'll use this...
+    //[SerializeField] private enum items : int { FlameThrower, Ax, Foam };
+
+    // This initializes the player controls
     void Awake()
     {
         actions = new PlayerControls();
         //actions.Enable();
     }
 
-    private void AbilitySwap(int swap)
+    private void Start()
     {
-        currentAbility = swap;
+        //usedItem = playerItems[currentAbility];
+        playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
     }
 
+    /// <summary>
+    /// This function will disbale the previous item, swap the number for the currently used item, 
+    /// and enable the currently used item
+    /// Through a button functionality
+    /// </summary>
+    private void AbilitySwap(int swap)
+    {
+        playerItems[currentAbility].SetActive(false); 
+        currentAbility = swap;
+        playerItems[currentAbility].SetActive(true);
+    }
+
+    /// <summary>
+    /// This function will disbale the previous item, swap the number for the currently used item, 
+    /// and enable the currently used item
+    /// Through a scroll wheel functionality
+    /// </summary>
     private void SecondAbilitySwap(int swap)
     {
+        playerItems[currentAbility].SetActive(false);
+
         currentAbility += swap;
 
         if(currentAbility >= numOfAbilities)
@@ -35,7 +67,7 @@ public class PlayerAbility : MonoBehaviour
         {
             currentAbility = numOfAbilities - 1;
         }
-        Debug.Log(currentAbility);
+        playerItems[currentAbility].SetActive(true);
     }
 
     /// <summary>
@@ -58,6 +90,9 @@ public class PlayerAbility : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This is where the events get put in for what happens when you click a button
+    /// </summary>
     private void OnEnable()
     {
         actions.Enable();
@@ -77,6 +112,9 @@ public class PlayerAbility : MonoBehaviour
         actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
     }
 
+    /// <summary>
+    /// Makes sure the actions get disabled so you can't do them once the object no longer exists
+    /// </summary>
     private void OnDisable()
     {
         actions.Disable();
