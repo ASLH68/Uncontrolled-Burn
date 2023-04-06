@@ -1417,6 +1417,19 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &1404996356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404996348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bb673c0d2d83d47beb7edcc39cdfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAbility: 0
 --- !u!1 &1469327884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,8 +1913,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 504810244}
-  - {fileID: 1404996351}
   - {fileID: 1475537024}
+  - {fileID: 1404996351}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

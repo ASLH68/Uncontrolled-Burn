@@ -86,37 +86,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "0c31e00f-e008-4a2e-99d1-afd247168119",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "38702318-ae90-47ff-ac2f-77b6a7742bc0",
+                    "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ItemScroll",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "072c5d0d-99c4-4e04-9ae9-51b42b766d5a",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ItemScroll",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "db410838-6ad0-42ab-8560-7820bf4ab209",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ItemScroll",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -128,39 +106,6 @@
                     "action": "AbilityUse",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "e73fad5a-b59f-4b89-8be0-92cf9817f241",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AbilityUse",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Negative",
-                    "id": "e77e8a3c-7643-490c-b96d-f3e3dbd98e80",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AbilityUse",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Positive",
-                    "id": "780b13fa-213d-429c-83c9-d88294cf8d12",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AbilityUse",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }
