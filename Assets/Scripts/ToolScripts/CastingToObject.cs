@@ -32,23 +32,34 @@ public class CastingToObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(_mainCamera.transform.position, transform.TransformDirection(Vector3.forward), out theObject, 10f, _layerMask))
+        if (PlayerController.main.SelectResistence)
         {
-            // If raycast target changed, reset previous object
-            if (_castedObject != null && !theObject.transform.gameObject.Equals(_castedObject))
+            if (Physics.Raycast(_mainCamera.transform.position, transform.TransformDirection(Vector3.forward), out theObject, 10f, _layerMask))
             {
-                ResetObject();
+                // If raycast target changed, reset previous object
+                if (_castedObject != null && !theObject.transform.gameObject.Equals(_castedObject))
+                {
+                    ResetObject();
+                }
+                SelectObject();
+                HighlightObject();
             }
-            SelectObject();
-            HighlightObject();
+            else
+            {
+                // Resets current object when stopped hovering
+                if (_castedObject != null)
+                {
+                    ResetObject();
+                }
+            }
         }
-        else 
+        else
         {
             // Resets current object when stopped hovering
             if (_castedObject != null)
             {
                 ResetObject();
-            }       
+            }
         }
     }
 

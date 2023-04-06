@@ -6,12 +6,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerAbility : MonoBehaviour
 {
+    public static PlayerAbility main;
     PlayerControls actions;
 
     // Ability Variables
     [SerializeField] private int currentAbility = 0; // It's serialized so the player can start with X ability
     private int numOfAbilities = 3;
 
+    public int CurrentAbility => currentAbility;
     //private GameObject usedItem;
 
     //[SerializeField] private GameObject flamethrower;   
@@ -28,6 +30,15 @@ public class PlayerAbility : MonoBehaviour
     {
         actions = new PlayerControls();
         //actions.Enable();
+
+        if (main == null)
+        {
+            main = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     private void Start()
@@ -44,7 +55,7 @@ public class PlayerAbility : MonoBehaviour
     private void AbilitySwap(int swap)
     {
         playerItems[currentAbility].SetActive(false); 
-        currentAbility = swap;
+        currentAbility = swap - 1;
         playerItems[currentAbility].SetActive(true);
     }
 
@@ -57,7 +68,7 @@ public class PlayerAbility : MonoBehaviour
     {
         playerItems[currentAbility].SetActive(false);
 
-        currentAbility += swap;
+        currentAbility += swap - 1;
 
         if(currentAbility >= numOfAbilities)
         {
@@ -79,10 +90,9 @@ public class PlayerAbility : MonoBehaviour
         switch(currentAbility)
         {
             case 0:
-
                 break;
                 case 1:
-                    
+                PlayerController.main.SelectResistence = true;
                 break;
             case 2:
 
