@@ -20,7 +20,9 @@ public class PlayerAbility : MonoBehaviour
     //[SerializeField] private GameObject ax;
     //[SerializeField] private GameObject foam;
 
+    // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
+    [SerializeField] GameObject _fireCone;
 
     // I'm not sure if I'll use this...
     //[SerializeField] private enum items : int { FlameThrower, Ax, Foam };
