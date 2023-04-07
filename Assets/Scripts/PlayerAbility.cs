@@ -22,7 +22,7 @@ public class PlayerAbility : MonoBehaviour
 
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
-    [SerializeField] GameObject _fireCone;
+    Flamethrower _flamethrower;
 
     // I'm not sure if I'll use this...
     //[SerializeField] private enum items : int { FlameThrower, Ax, Foam };
@@ -47,6 +47,7 @@ public class PlayerAbility : MonoBehaviour
     {
         //usedItem = playerItems[currentAbility];
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
+        _flamethrower = playerItems[0].GetComponent<Flamethrower>();
     }
 
     /// <summary>
@@ -92,6 +93,7 @@ public class PlayerAbility : MonoBehaviour
         switch(currentAbility)
         {
             case 0:
+                _flamethrower.CastFire();
                 break;
                 case 1:
                 PlayerController.main.SelectResistence = true;

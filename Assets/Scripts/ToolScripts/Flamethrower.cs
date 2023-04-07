@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class Flamethrower : MonoBehaviour
 {
+    [SerializeField] GameObject _fireCone;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,15 +28,23 @@ public class Flamethrower : MonoBehaviour
     /// Controls generation of fire object
     /// </summary>
     /// <param name="FireCone">object that determines fires position</param>
-    public void CastFire(GameObject FireCone)
+    public void CastFire()
     {
-        if (FireCone.activeInHierarchy)
+        if (_fireCone.activeInHierarchy)
         {
-            FireCone.SetActive(false);
+            _fireCone.SetActive(false);
         }
         else
         {
-            FireCone.SetActive(true);
+            _fireCone.SetActive(true);
         }
+    }
+
+    /// <summary>
+    /// Called when object is disabled
+    /// </summary>
+    private void OnDisable()
+    {
+        _fireCone.SetActive(false);
     }
 }

@@ -31,7 +31,7 @@ public class WallSegment : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (_health >= _MaxHealth / 2 && _spreadFlag)
+        if (_health <= _MaxHealth / 2 && _spreadFlag && _isOnFire)
         {
             SpreadFire();
             _spreadFlag = false;
@@ -45,19 +45,14 @@ public class WallSegment : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Lights on contact with fire
-        if (gameObject.tag != "FireResistant" && !_isOnFire)
+        if (gameObject.tag != "FireResistant" && !_isOnFire
+            && !GetComponent<Collider>().isTrigger)
         {
             if (other.tag == "PlayerFire")
             {
                 _isOnFire = true;
                 StartCoroutine(BurnDown());
                 _isFireSource = true;
-            }
-            if (other.tag == "SpreadFire")
-            {
-                _isOnFire = true;
-                StartCoroutine(BurnDown());
-
             }
         }
     }
@@ -88,7 +83,38 @@ public class WallSegment : MonoBehaviour
     /// </summary>
     void SpreadFire()
     {
+        Debug.Log("spread");
+        // Objects to attempt to ignite
+        Collider[] spreadColliders = Physics.OverlapBox(transform.position,
+            transform.lossyScale * 2);
 
+        foreach (Collider i in spreadColliders)
+        {
+            Debug.Log("object Detected");
+            // Determines which objects to ignite
+            if (i.gameObject.GetComponent<WallSegment>()
+                && !i.gameObject.GetComponent<WallSegment>()._isOnFire
+                && gameObject.tag != "FireResistant")
+            {
+                Debug.Log("object flammable");
+                WallSegment spreadWall =
+                    i.gameObject.GetComponent<WallSegment>();
+
+                // Performs ignition
+                if (_isFireSource)
+                {
+                    Debug.Log("object lit");
+                    spreadWall._isOnFire = true;
+                    spreadWall.StartCoroutine(spreadWall.BurnDown());
+                }
+                else if (Random.Range(0, 2) == 1)
+                {
+                    Debug.Log("object lit");
+                    spreadWall._isOnFire = true;
+                    spreadWall.StartCoroutine(spreadWall.BurnDown());
+                }
+            }
+        }
     }
 
     /// <summary>
