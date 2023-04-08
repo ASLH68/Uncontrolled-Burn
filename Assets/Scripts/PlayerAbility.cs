@@ -57,9 +57,12 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void AbilitySwap(int swap)
     {
-        playerItems[currentAbility].SetActive(false); 
-        currentAbility = swap - 1;
-        playerItems[currentAbility].SetActive(true);
+        if (!PauseMenu.main.IsPaused)
+        {
+            playerItems[currentAbility].SetActive(false);
+            currentAbility = swap - 1;
+            playerItems[currentAbility].SetActive(true);
+        }
     }
 
     /// <summary>
@@ -69,19 +72,22 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void SecondAbilitySwap(int swap)
     {
-        playerItems[currentAbility].SetActive(false);
-
-        currentAbility += swap - 1;
-
-        if(currentAbility >= numOfAbilities)
+        if (!PauseMenu.main.IsPaused)
         {
-            currentAbility = 0;
+            playerItems[currentAbility].SetActive(false);
+
+            currentAbility += swap - 1;
+
+            if (currentAbility >= numOfAbilities)
+            {
+                currentAbility = 0;
+            }
+            else if (currentAbility < 0)
+            {
+                currentAbility = numOfAbilities - 1;
+            }
+            playerItems[currentAbility].SetActive(true);
         }
-        else if(currentAbility < 0)
-        {
-            currentAbility = numOfAbilities - 1;
-        }
-        playerItems[currentAbility].SetActive(true);
     }
 
     /// <summary>
@@ -90,17 +96,20 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void AbilityUse()
     {
-        switch(currentAbility)
+        if (!PauseMenu.main.IsPaused)
         {
-            case 0:
-                _flamethrower.CastFire();
-                break;
+            switch (currentAbility)
+            {
+                case 0:
+                    _flamethrower.CastFire();
+                    break;
                 case 1:
-                PlayerController.main.SelectResistance = true;
-                break;
-            case 2:
+                    PlayerController.main.SelectResistance = true;
+                    break;
+                case 2:
 
-                break;
+                    break;
+            }
         }
     }
 
@@ -109,21 +118,21 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        actions.Enable();
+            actions.Enable();
 
-        // This is the item using section
-        actions.Player.AbilityUse.performed += ctx => AbilityUse();
+            // This is the item using section
+            actions.Player.AbilityUse.performed += ctx => AbilityUse();
 
-        // This would be used for stopping a hold down? 
-        // I could probably make a different one for holding something down within the controls
-        actions.Player.AbilityUse.canceled += ctx => AbilityUse();
+            // This would be used for stopping a hold down? 
+            // I could probably make a different one for holding something down within the controls
+            actions.Player.AbilityUse.canceled += ctx => AbilityUse();
 
-        // This is the item swapping section
-        actions.Player.Item1.performed += ctx => AbilitySwap(1);
-        actions.Player.Item2.performed += ctx => AbilitySwap(2);
-        actions.Player.Item3.performed += ctx => AbilitySwap(3);
+            // This is the item swapping section
+            actions.Player.Item1.performed += ctx => AbilitySwap(1);
+            actions.Player.Item2.performed += ctx => AbilitySwap(2);
+            actions.Player.Item3.performed += ctx => AbilitySwap(3);
 
-        actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
+            actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));      
     }
 
     /// <summary>

@@ -15,13 +15,28 @@ using UnityEngine.UIElements;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu main;
+
     [Header("Panels")]
     [SerializeField] private GameObject _pauseMenuPanel;
     [SerializeField] private GameObject _howToPlayPanel;
 
     private bool _isPaused = false;
+    public bool IsPaused => _isPaused;
 
     private GameObject _currentPanel;
+
+    private void Awake()
+    {
+        if(main == null)
+        {
+            main = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {
@@ -90,8 +105,7 @@ public class PauseMenu : MonoBehaviour
         else
         {
             _isPaused = true;
-            Time.timeScale = 0f;
-            
+            Time.timeScale = 0f; 
         }      
     }
 
