@@ -14,7 +14,7 @@ using UnityEngine;
 public class SelectedFlash : MonoBehaviour
 {
     public GameObject selectedObject;   // the object being casted
-    public bool lookingAtObject = false;
+    //public bool lookingAtObject = false;
     public bool flashingIn = true;      // start flashing as soon as looked at
     public bool startedFlashing = false;
 
@@ -73,8 +73,7 @@ public class SelectedFlash : MonoBehaviour
                 }
                 else
                 {
-                    blueColor -= 25;
-                    greenColor -= 1;
+                    ModifyColors(-25);
                 }
             }
 
@@ -86,8 +85,7 @@ public class SelectedFlash : MonoBehaviour
                 }
                 else
                 {
-                    blueColor += 25;
-                    greenColor += 1;
+                    ModifyColors(25);
                 }
             }
         }
@@ -96,5 +94,16 @@ public class SelectedFlash : MonoBehaviour
         {
             selectedObject.GetComponent<Renderer>().material.color = _originalColor;
         }   
+    }
+
+    /// <summary>
+    /// Modifies the colors used for the material
+    /// </summary>
+    /// <param name="amount"> amount each color is modified by </param>
+    private void ModifyColors(int amount)
+    {
+        blueColor += amount;
+        greenColor += amount;
+        redColor += amount;
     }
 }

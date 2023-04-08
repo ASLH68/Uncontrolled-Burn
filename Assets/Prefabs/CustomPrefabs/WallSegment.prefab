@@ -115,9 +115,9 @@ MonoBehaviour:
   lookingAtObject: 0
   flashingIn: 1
   startedFlashing: 0
-  redColor: 0
-  greenColor: 0
-  blueColor: 0
+  redColor: 255
+  greenColor: 255
+  blueColor: 255
 --- !u!114 &6400946166297847724
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,8 +15,8 @@ public class FlameResistance : MonoBehaviour
 {
     public static FlameResistance main;
 
-    private int _resistanceUses;
-    [SerializeField] private Material _resistantMaterial;
+    [SerializeField] private int _resistanceUses;
+    //[SerializeField] private Material _resistantMaterial;
 
     public int ResistanceUses => _resistanceUses;
 
@@ -35,13 +35,23 @@ public class FlameResistance : MonoBehaviour
     /// <summary>
     /// Applies the reistant tag and reduces amount of item uses
     /// </summary>
-    /// <param name="wallSeg"></param>
+    /// <param name="wallSeg"> wall segment being affected </param>
     public void UseItem(GameObject wallSeg)
     {
-        wallSeg.GetComponent<SelectedFlash>().SetStartFlashing(false);
-        wallSeg.GetComponent<WallSegment>().SetIsResistant();
-        wallSeg.gameObject.tag = "FireResistant";
-        _resistanceUses--;
-        wallSeg.gameObject.GetComponent<Renderer>().material.color = Color.cyan;
+        if (_resistanceUses > 0)
+        {
+            // Ends the wall highlight flash
+            wallSeg.GetComponent<SelectedFlash>().SetStartFlashing(false);
+            wallSeg.GetComponent<WallSegment>().SetIsResistant();
+
+            //applies the tag and reduces usage by one, + player feedback
+            wallSeg.gameObject.tag = "FireResistant";   
+            _resistanceUses--;
+            wallSeg.gameObject.GetComponent<Renderer>().material.color = Color.cyan;
+        }
+        else
+        {
+            Debug.Log("Out of resistant");
+        }
     }
 }
