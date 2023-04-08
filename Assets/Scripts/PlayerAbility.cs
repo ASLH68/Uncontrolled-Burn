@@ -96,7 +96,7 @@ public class PlayerAbility : MonoBehaviour
                 _flamethrower.CastFire();
                 break;
                 case 1:
-                PlayerController.main.SelectResistence = true;
+                PlayerController.main.SelectResistance = true;
                 break;
             case 2:
 

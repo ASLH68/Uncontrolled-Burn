@@ -8,19 +8,27 @@
 *****************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SelectedFlash : MonoBehaviour
 {
     public GameObject selectedObject;   // the object being casted
-    public bool lookingAtObject = false;
+    //public bool lookingAtObject = false;
     public bool flashingIn = true;      // start flashing as soon as looked at
     public bool startedFlashing = false;
+
+    private Color _originalColor;
 
     public int redColor;
     public int greenColor;
     public int blueColor;
 
+    private void Start()
+    {
+        selectedObject = gameObject;
+        _originalColor = selectedObject.GetComponent<Renderer>().material.color;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -65,8 +73,7 @@ public class SelectedFlash : MonoBehaviour
                 }
                 else
                 {
-                    blueColor -= 25;
-                    greenColor -= 1;
+                    ModifyColors(-25);
                 }
             }
 
@@ -78,12 +85,25 @@ public class SelectedFlash : MonoBehaviour
                 }
                 else
                 {
-                    blueColor += 25;
-                    greenColor += 1;
+                    ModifyColors(25);
                 }
             }
         }
         // Resets objects color
-        selectedObject.GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 255);
+        if(!selectedObject.GetComponent<WallSegment>().IsResistant)
+        {
+            selectedObject.GetComponent<Renderer>().material.color = _originalColor;
+        }   
+    }
+
+    /// <summary>
+    /// Modifies the colors used for the material
+    /// </summary>
+    /// <param name="amount"> amount each color is modified by </param>
+    private void ModifyColors(int amount)
+    {
+        blueColor += amount;
+        greenColor += amount;
+        redColor += amount;
     }
 }

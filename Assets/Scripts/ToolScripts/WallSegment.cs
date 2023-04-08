@@ -12,7 +12,10 @@ using UnityEngine;
 public class WallSegment : MonoBehaviour
 {
     [SerializeField] private int _health;
+    private bool _isResistant = false;  // If wall is resistant to fire
     int _MaxHealth;
+
+    public bool IsResistant => _isResistant;
 
     bool _isOnFire = false;
     bool _isFireSource = false;
@@ -68,6 +71,14 @@ public class WallSegment : MonoBehaviour
         {
             DestroySegment();
         }
+    }
+
+    /// <summary>
+    /// Sets _isResistant to true
+    /// </summary>
+    public void SetIsResistant()
+    {
+        _isResistant = true;
     }
 
     /// <summary>
