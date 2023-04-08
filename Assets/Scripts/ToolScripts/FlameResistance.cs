@@ -16,6 +16,7 @@ public class FlameResistance : MonoBehaviour
     public static FlameResistance main;
 
     private int _resistanceUses;
+    [SerializeField] private Material _resistantMaterial;
 
     public int ResistanceUses => _resistanceUses;
 
@@ -37,7 +38,10 @@ public class FlameResistance : MonoBehaviour
     /// <param name="wallSeg"></param>
     public void UseItem(GameObject wallSeg)
     {
+        wallSeg.GetComponent<SelectedFlash>().SetStartFlashing(false);
+        wallSeg.GetComponent<WallSegment>().SetIsResistant();
         wallSeg.gameObject.tag = "FireResistant";
         _resistanceUses--;
+        wallSeg.gameObject.GetComponent<Renderer>().material.color = Color.cyan;
     }
 }

@@ -710,6 +710,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallSegment
       objectReference: {fileID: 0}
+    - target: {fileID: 6400946166297847730, guid: f6cd57c7135a1a545bed529882b64eac,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6cd57c7135a1a545bed529882b64eac, type: 3}
 --- !u!1 &874605735
@@ -1510,7 +1515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c37fc735e153fb4c8862bae0a6e1698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectResistence: 0
+  SelectResistance: 0
 --- !u!114 &135756641613574985
 MonoBehaviour:
   m_ObjectHideFlags: 0

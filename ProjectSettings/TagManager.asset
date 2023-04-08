@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - FireResistant
+  - Indestructable
   layers:
   - Default
   - TransparentFX

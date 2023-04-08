@@ -8,6 +8,7 @@
 *****************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SelectedFlash : MonoBehaviour
@@ -17,10 +18,17 @@ public class SelectedFlash : MonoBehaviour
     public bool flashingIn = true;      // start flashing as soon as looked at
     public bool startedFlashing = false;
 
+    private Color _originalColor;
+
     public int redColor;
     public int greenColor;
     public int blueColor;
 
+    private void Start()
+    {
+        selectedObject = gameObject;
+        _originalColor = selectedObject.GetComponent<Renderer>().material.color;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -84,6 +92,9 @@ public class SelectedFlash : MonoBehaviour
             }
         }
         // Resets objects color
-        selectedObject.GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 255);
+        if(!selectedObject.GetComponent<WallSegment>().IsResistant)
+        {
+            selectedObject.GetComponent<Renderer>().material.color = _originalColor;
+        }   
     }
 }

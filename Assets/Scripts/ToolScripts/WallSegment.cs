@@ -12,6 +12,9 @@ using UnityEngine;
 public class WallSegment : MonoBehaviour
 {
     [SerializeField] private int _health;
+    private bool _isResistant = false;  // If wall is resistant to fire
+
+    public bool IsResistant => _isResistant;
 
     /// <summary>
     /// Tree loses health
@@ -24,6 +27,14 @@ public class WallSegment : MonoBehaviour
         {
             DestroySegment();
         }
+    }
+
+    /// <summary>
+    /// Sets _isResistant to true
+    /// </summary>
+    public void SetIsResistant()
+    {
+        _isResistant = true;
     }
 
     /// <summary>

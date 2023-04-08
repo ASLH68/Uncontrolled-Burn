@@ -92,7 +92,7 @@ public class PlayerAbility : MonoBehaviour
             case 0:
                 break;
                 case 1:
-                PlayerController.main.SelectResistence = true;
+                PlayerController.main.SelectResistance = true;
                 break;
             case 2:
 

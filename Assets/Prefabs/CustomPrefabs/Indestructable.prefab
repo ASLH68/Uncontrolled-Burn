@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9107289089907771368}
   m_Layer: 10
   m_Name: Indestructable
-  m_TagString: Untagged
+  m_TagString: Indestructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 12e164f8fd2aec14490dceb9d715fa8b, type: 2}
+  - {fileID: 2100000, guid: 8affef15f0b83a24c97ec4844b295914, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

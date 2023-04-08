@@ -32,9 +32,10 @@ public class CastingToObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerController.main.SelectResistence)
+        // If player is using the select resistance item
+        if (PlayerController.main.SelectResistance)
         {
-            if (Physics.Raycast(_mainCamera.transform.position, transform.TransformDirection(Vector3.forward), out theObject, 10f, _layerMask))
+            if (Physics.Raycast(_mainCamera.transform.position, transform.TransformDirection(Vector3.forward), out theObject, 10f, _layerMask) && !theObject.transform.gameObject.CompareTag("Indestructable") && !theObject.transform.gameObject.CompareTag("FireResistant"))
             {
                 // If raycast target changed, reset previous object
                 if (_castedObject != null && !theObject.transform.gameObject.Equals(_castedObject))
@@ -51,22 +52,15 @@ public class CastingToObject : MonoBehaviour
                     FlameResistance.main.UseItem(_castedObject);
                 }
             }
-            else
-            {
-                // Resets current object when stopped hovering
-                if (_castedObject != null)
-                {
-                    ResetObject();
-                }
-            }
-        }
-        else
-        {
-            // Resets current object when stopped hovering
-            if (_castedObject != null)
+            else if (_castedObject != null && !_castedObject.CompareTag("FireResistant"))
             {
                 ResetObject();
             }
+        }
+        // Resets current object when stopped hovering
+        else if (_castedObject != null && !_castedObject.CompareTag("FireResistant"))
+        {
+            ResetObject();
         }
     }
 
