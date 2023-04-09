@@ -107,7 +107,6 @@ public class PlayerAbility : MonoBehaviour
                     PlayerController.main.SelectResistance = true;
                     break;
                 case 2:
-
                     break;
             }
         }

@@ -21,12 +21,15 @@ public class WallSegment : MonoBehaviour
     bool _isFireSource = false;
     bool _spreadFlag = true;
 
+    private Color _originalColor;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
     private void Start()
     {
         _MaxHealth = _health;
+        _originalColor = gameObject.GetComponent<Renderer>().material.color;
     }
 
     /// <summary>
@@ -71,6 +74,17 @@ public class WallSegment : MonoBehaviour
         {
             DestroySegment();
         }
+    }
+
+    /// <summary>
+    /// ONLY FOR THE AXE ATTACK
+    /// </summary>
+    /// <param name="healthLost"></param>
+    /// <param name="isAxe"></param>
+    public void LoseHealth(int healthLost, bool isAxe)
+    {
+        LoseHealth(healthLost);
+        StartCoroutine(FlashRed());
     }
 
     /// <summary>
@@ -126,6 +140,19 @@ public class WallSegment : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Flashes the game object red
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator FlashRed()
+    {
+        gameObject.GetComponent<Renderer>().material.color = new Color32((byte)100f, (byte)0f, (byte)0f, (byte)255);
+
+        yield return new WaitForSeconds(1f);
+
+        gameObject.GetComponent<Renderer>().material.color = _originalColor;
     }
 
     /// <summary>
