@@ -17,11 +17,13 @@ public class WallSegment : MonoBehaviour
 
     public bool IsResistant => _isResistant;
 
-    bool _isOnFire = false;
-    bool _isFireSource = false;
-    bool _spreadFlag = true;
+    private bool _isOnFire = false;
+    private bool _isFireSource = false;
+    private bool _spreadFlag = true;
 
-    private Color _originalColor;
+    public bool IsOnFire => _isOnFire;
+
+    public Color OriginalColor;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -29,7 +31,7 @@ public class WallSegment : MonoBehaviour
     private void Start()
     {
         _MaxHealth = _health;
-        _originalColor = gameObject.GetComponent<Renderer>().material.color;
+        OriginalColor = gameObject.GetComponent<Renderer>().material.color;
     }
 
     /// <summary>
@@ -150,7 +152,7 @@ public class WallSegment : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        gameObject.GetComponent<Renderer>().material.color = _originalColor;
+        gameObject.GetComponent<Renderer>().material.color = OriginalColor;
     }
 
     /// <summary>

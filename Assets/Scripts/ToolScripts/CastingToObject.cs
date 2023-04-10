@@ -35,7 +35,10 @@ public class CastingToObject : MonoBehaviour
         // If player is using the select resistance item
         if (PlayerController.main.SelectResistance)
         {
-            if (Physics.Raycast(_mainCamera.transform.position, transform.TransformDirection(Vector3.forward), out theObject, 10f, _layerMask) && !theObject.transform.gameObject.CompareTag("Indestructable") && !theObject.transform.gameObject.CompareTag("FireResistant"))
+            if (Physics.Raycast(_mainCamera.transform.position, transform.TransformDirection(Vector3.forward), out theObject, 10f, _layerMask) 
+                && !theObject.transform.gameObject.CompareTag("Indestructable") // Indestructable walls & fire-resistent walls, and burning walls can not be highlighted
+                && !theObject.transform.gameObject.CompareTag("FireResistant") 
+                && !theObject.transform.gameObject.GetComponent<WallSegment>().IsOnFire)
             {
                 // If raycast target changed, reset previous object
                 if (_castedObject != null && !theObject.transform.gameObject.Equals(_castedObject))
@@ -47,11 +50,12 @@ public class CastingToObject : MonoBehaviour
                 HighlightObject();
 
                 // Use the flame resistance of applicable when they press LMB
-                if (Input.GetMouseButtonDown(0) && !_castedObject.CompareTag("FireResistant")) 
+                if (Input.GetMouseButtonDown(0)) 
                 {
                     FlameResistance.main.UseItem(_castedObject);
                 }
             }
+
             else if (_castedObject != null && !_castedObject.CompareTag("FireResistant"))
             {
                 ResetObject();
