@@ -21,6 +21,8 @@ public class AxeController : MonoBehaviour
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private int _attackDamage;
     [SerializeField] private Collider _axeCollider;
+    [SerializeField] private AudioSource _axeHitSound;
+    private bool _hasHit = false;
 
     private void Awake()
     {
@@ -52,7 +54,9 @@ public class AxeController : MonoBehaviour
         if((other.CompareTag("WallSegment") || other.CompareTag("FireResistant")) && _isAttacking)
         {
             other.GetComponent<Animator>().SetTrigger("Hit");
-            other.GetComponent<WallSegment>().LoseHealth(_attackDamage, true);    
+            other.GetComponent<WallSegment>().LoseHealth(_attackDamage, true);
+            _hasHit = true;
+            PlayHitSound();
         }
     }
 
@@ -61,12 +65,11 @@ public class AxeController : MonoBehaviour
     /// </summary>
     public void AxeAttack()
     {
-        _axeCollider.enabled = true;
+        Invoke("EnableColliders", 1f);
         _isAttacking = true;
         _canAttack = false;
         Animator anim = _axe.GetComponent<Animator>();
         anim.SetTrigger("Attack");
-
         StartCoroutine(ResetAttackCooldown());
     }
 
@@ -80,7 +83,20 @@ public class AxeController : MonoBehaviour
         _canAttack = true;
         _isAttacking = false;
         _axeCollider.enabled = false;
+        _hasHit = false;
     }
 
+    private void PlayHitSound()
+    {
+        if (_hasHit)
+        {
+            _axeHitSound.Play();
+        }
+    }
+
+    private void EnableColliders()
+    {
+        _axeCollider.enabled = true;
+    }
 
 }
