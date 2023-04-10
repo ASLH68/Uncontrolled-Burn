@@ -20,6 +20,8 @@ public class PlayerAbility : MonoBehaviour
     //[SerializeField] private GameObject ax;
     //[SerializeField] private GameObject foam;
 
+    [SerializeField] private List<GameObject> highlights = new List<GameObject>(); 
+
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
     Flamethrower _flamethrower;
@@ -47,6 +49,7 @@ public class PlayerAbility : MonoBehaviour
     {
         //usedItem = playerItems[currentAbility];
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
+        highlights[currentAbility].SetActive(true);
         _flamethrower = playerItems[0].GetComponent<Flamethrower>();
     }
 
@@ -60,8 +63,10 @@ public class PlayerAbility : MonoBehaviour
         if (!PauseMenu.main.IsPaused)
         {
             playerItems[currentAbility].SetActive(false);
+            highlights[currentAbility].SetActive(false);
             currentAbility = swap - 1;
             playerItems[currentAbility].SetActive(true);
+            highlights[currentAbility].SetActive(true);
         }
     }
 
@@ -75,6 +80,7 @@ public class PlayerAbility : MonoBehaviour
         if (!PauseMenu.main.IsPaused)
         {
             playerItems[currentAbility].SetActive(false);
+            highlights[currentAbility].SetActive(false);
 
             currentAbility += swap - 1;
 
@@ -87,6 +93,7 @@ public class PlayerAbility : MonoBehaviour
                 currentAbility = numOfAbilities - 1;
             }
             playerItems[currentAbility].SetActive(true);
+            highlights[currentAbility].SetActive(true);
         }
     }
 
@@ -124,7 +131,7 @@ public class PlayerAbility : MonoBehaviour
 
             // This would be used for stopping a hold down? 
             // I could probably make a different one for holding something down within the controls
-            actions.Player.AbilityUse.canceled += ctx => AbilityUse();
+            //actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
 
             // This is the item swapping section
             actions.Player.Item1.performed += ctx => AbilitySwap(1);
