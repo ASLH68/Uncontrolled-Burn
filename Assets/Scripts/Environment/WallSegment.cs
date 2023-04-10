@@ -121,7 +121,7 @@ public class WallSegment : MonoBehaviour
             // Determines which objects to ignite
             if (i.gameObject.GetComponent<WallSegment>()
                 && !i.gameObject.GetComponent<WallSegment>()._isOnFire
-                && gameObject.tag != "FireResistant")
+                && i.gameObject.tag != "FireResistant")
             {
                 //Debug.Log("object flammable");
                 WallSegment spreadWall =
