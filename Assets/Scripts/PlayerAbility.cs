@@ -133,7 +133,7 @@ public class PlayerAbility : MonoBehaviour
 
             // This would be used for stopping a hold down? 
             // I could probably make a different one for holding something down within the controls
-            actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
+            //actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
 
             // This is the item swapping section
             actions.Player.Item1.performed += ctx => AbilitySwap(1);

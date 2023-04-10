@@ -23,8 +23,6 @@ public class WallSegment : MonoBehaviour
 
     private Color _originalColor;
 
-    GameObject _fireVersion;
-
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -32,7 +30,6 @@ public class WallSegment : MonoBehaviour
     {
         _MaxHealth = _health;
         _originalColor = gameObject.GetComponent<Renderer>().material.color;
-        _fireVersion = transform.GetChild(0).gameObject;
     }
 
     /// <summary>
@@ -162,7 +159,7 @@ public class WallSegment : MonoBehaviour
     /// <returns></returns>
     IEnumerator BurnDown()
     {
-        _fireVersion.SetActive(true);
+        GetComponent<Renderer>().material.color = Color.red;
 
         while (_isOnFire)
         {
