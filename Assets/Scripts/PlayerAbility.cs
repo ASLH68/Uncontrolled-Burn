@@ -129,6 +129,8 @@ public class PlayerAbility : MonoBehaviour
             // This is the item using section
             actions.Player.AbilityUse.performed += ctx => AbilityUse();
 
+        actions.Player.AbilityUse.performed += ctx => Debug.Log("Howdty");
+
             // This would be used for stopping a hold down? 
             // I could probably make a different one for holding something down within the controls
             actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
