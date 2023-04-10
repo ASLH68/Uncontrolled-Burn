@@ -86,6 +86,9 @@ public class AxeController : MonoBehaviour
         _hasHit = false;
     }
 
+    /// <summary>
+    /// Plays the axe hit sound
+    /// </summary>
     private void PlayHitSound()
     {
         if (_hasHit)
@@ -94,6 +97,9 @@ public class AxeController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Enables the axe collider
+    /// </summary>
     private void EnableColliders()
     {
         _axeCollider.enabled = true;
