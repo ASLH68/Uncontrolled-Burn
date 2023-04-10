@@ -6,6 +6,7 @@
 // Brief Description : This document controls the axe attack.
 *****************************************************************************/
 
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class AxeController : MonoBehaviour
     [SerializeField] private float _attackCooldown = 2.8f;
     [SerializeField] private bool _isAttacking = false;
     [SerializeField] private int _attackDamage;
+    [SerializeField] private Collider _axeCollider;
 
     private void Awake()
     {
@@ -30,6 +32,11 @@ public class AxeController : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    private void Start()
+    {
+        _axeCollider.enabled = false;
     }
 
     private void Update()
@@ -54,6 +61,7 @@ public class AxeController : MonoBehaviour
     /// </summary>
     public void AxeAttack()
     {
+        _axeCollider.enabled = true;
         _isAttacking = true;
         _canAttack = false;
         Animator anim = _axe.GetComponent<Animator>();
@@ -67,10 +75,11 @@ public class AxeController : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator ResetAttackCooldown()
-    {
+    {       
         yield return new WaitForSeconds(_attackCooldown);
         _canAttack = true;
         _isAttacking = false;
+        _axeCollider.enabled = false;
     }
 
 

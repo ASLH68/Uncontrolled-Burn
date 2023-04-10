@@ -109,6 +109,5 @@ public class CastingToObject : MonoBehaviour
         {
             selectedFlash.SetStartFlashing(false);
         }
-
     }
 }
