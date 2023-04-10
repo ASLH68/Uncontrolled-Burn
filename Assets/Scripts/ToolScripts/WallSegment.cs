@@ -108,33 +108,31 @@ public class WallSegment : MonoBehaviour
     /// </summary>
     void SpreadFire()
     {
-        Debug.Log("spread");
+        //Debug.Log("spread");
         // Objects to attempt to ignite
         Collider[] spreadColliders = Physics.OverlapBox(transform.position,
             transform.lossyScale * 2);
 
         foreach (Collider i in spreadColliders)
         {
-            Debug.Log("object Detected");
+            //Debug.Log("object Detected");
             // Determines which objects to ignite
             if (i.gameObject.GetComponent<WallSegment>()
                 && !i.gameObject.GetComponent<WallSegment>()._isOnFire
                 && gameObject.tag != "FireResistant")
             {
-                Debug.Log("object flammable");
+                //Debug.Log("object flammable");
                 WallSegment spreadWall =
                     i.gameObject.GetComponent<WallSegment>();
 
                 // Performs ignition
                 if (_isFireSource)
                 {
-                    Debug.Log("object lit");
                     spreadWall._isOnFire = true;
                     spreadWall.StartCoroutine(spreadWall.BurnDown());
                 }
                 else if (Random.Range(0, 2) == 1)
                 {
-                    Debug.Log("object lit");
                     spreadWall._isOnFire = true;
                     spreadWall.StartCoroutine(spreadWall.BurnDown());
                 }
@@ -161,6 +159,8 @@ public class WallSegment : MonoBehaviour
     /// <returns></returns>
     IEnumerator BurnDown()
     {
+        GetComponent<Renderer>().material.color = Color.red;
+
         while (_isOnFire)
         {
             LoseHealth(20);

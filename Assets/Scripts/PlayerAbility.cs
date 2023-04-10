@@ -49,7 +49,7 @@ public class PlayerAbility : MonoBehaviour
     {
         //usedItem = playerItems[currentAbility];
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
-        highlights[currentAbility].SetActive(true);
+        highlights[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         _flamethrower = playerItems[0].GetComponent<Flamethrower>();
     }
 
@@ -129,11 +129,11 @@ public class PlayerAbility : MonoBehaviour
             // This is the item using section
             actions.Player.AbilityUse.performed += ctx => AbilityUse();
 
-            actions.Player.AbilityUse.performed += ctx => Debug.Log("Howdty");
+        actions.Player.AbilityUse.performed += ctx => Debug.Log("Howdty");
 
             // This would be used for stopping a hold down? 
             // I could probably make a different one for holding something down within the controls
-            actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
+            //actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
 
             // This is the item swapping section
             actions.Player.Item1.performed += ctx => AbilitySwap(1);
