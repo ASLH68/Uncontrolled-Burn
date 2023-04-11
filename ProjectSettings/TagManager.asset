@@ -9,6 +9,7 @@ TagManager:
   - CinemachineTarget
   - FireResistant
   - WallSegment
+  - ItemSlot
   layers:
   - Default
   - TransparentFX
