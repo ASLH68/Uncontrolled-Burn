@@ -48,6 +48,7 @@ public class FlameResistance : MonoBehaviour
             wallSeg.gameObject.tag = "FireResistant";   
             _resistanceUses--;
             wallSeg.gameObject.GetComponent<Renderer>().material.color = Color.cyan;
+            wallSeg.gameObject.GetComponent<WallSegment>().OriginalColor = Color.cyan;  // When hit by axe, wil remain blue
         }
         else
         {

@@ -105,6 +105,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlameThrower
       objectReference: {fileID: 0}
+    - target: {fileID: 7984079984147797483, guid: 6873266bd2414b74fbfa3b71325184ef,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 23e5e30498d30174b9e43d09dc419871, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6873266bd2414b74fbfa3b71325184ef, type: 3}
 --- !u!1 &2083216550360372680 stripped

@@ -65,6 +65,17 @@ public class PlayerAbility : MonoBehaviour
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
             currentAbility = swap - 1;
+
+            // Begins the resistent selection
+            if (currentAbility == 1)
+            {
+                PlayerController.main.SelectResistance = true;
+            }
+            else
+            {
+                PlayerController.main.SelectResistance = false;
+            }
+
             playerItems[currentAbility].SetActive(true);
             highlights[currentAbility].SetActive(true);
         }
@@ -83,6 +94,16 @@ public class PlayerAbility : MonoBehaviour
             highlights[currentAbility].SetActive(false);
 
             currentAbility += swap - 1;
+
+            // Begins the resistent selection
+            if(currentAbility == 1)
+            {
+                PlayerController.main.SelectResistance = true;
+            }
+            else
+            {
+                PlayerController.main.SelectResistance = false;
+            }
 
             if (currentAbility >= numOfAbilities)
             {
@@ -111,7 +132,6 @@ public class PlayerAbility : MonoBehaviour
                     _flamethrower.CastFire();
                     break;
                 case 1:
-                    PlayerController.main.SelectResistance = true;
                     break;
                 case 2:
                     break;
