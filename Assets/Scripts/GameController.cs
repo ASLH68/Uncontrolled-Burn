@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
 {
     public static GameController main;
 
+    [SerializeField] private GameObject _endScreen;
+
     private void Awake()
     {
         if (main == null)
@@ -36,5 +38,10 @@ public class GameController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             FirstPersonController.main.IsControllable = false;
         }
+    }
+
+    public void DisplayEndScreen()
+    {
+        _endScreen.SetActive(true);
     }
 }

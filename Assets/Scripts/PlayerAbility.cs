@@ -68,6 +68,10 @@ public class PlayerAbility : MonoBehaviour
             highlights[currentAbility].SetActive(false);
             currentAbility = swap /*- 1*/;
 
+            if(currentAbility != 2)
+            {
+                AxeController.main.ResetAxeState();     // Allows axe to be used again if switched off mid attack
+            }
             // Begins the resistent selection
             if (currentAbility == 1)
             {

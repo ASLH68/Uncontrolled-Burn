@@ -105,4 +105,12 @@ public class AxeController : MonoBehaviour
         _axeCollider.enabled = true;
     }
 
+    public void ResetAxeState()
+    {
+        _canAttack = true;
+        _isAttacking = false;
+        _axeCollider.enabled = false;
+        _hasHit = false;
+    }
+
 }
