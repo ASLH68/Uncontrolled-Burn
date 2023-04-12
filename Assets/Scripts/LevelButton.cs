@@ -15,6 +15,7 @@ public class LevelButton : MonoBehaviour
         // I'll code the star system later, we're just going through tutorials for now
 
         // I could probably change this to a string, just so the game doesn't break
+        Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene(level);
     }
 }

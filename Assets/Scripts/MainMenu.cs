@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
         _currentPanel = _mainMenuPanel;
     }
 

@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject _pauseMenuPanel;
     [SerializeField] private GameObject _howToPlayPanel;
 
-    private bool _isPaused = false;
+    private bool _isPaused;
     public bool IsPaused => _isPaused;
 
     private GameObject _currentPanel;
@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         _currentPanel = _pauseMenuPanel;
+        _isPaused = false;
     }
 
     private void Update()
@@ -83,7 +84,13 @@ public class PauseMenu : MonoBehaviour
     /// Returns to the main menu
     /// </summary>
     public void ReturnToMenu()
-    {
+    {       
+        if (_isPaused)
+        {
+            UnlockPlayer();
+            Time.timeScale = 1f;
+            _isPaused = false;
+        }
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -94,19 +101,20 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         SetCurrentPanel(_pauseMenuPanel);
-        LockPlayer();
 
         if (_isPaused)
         {
+            UnlockPlayer();
             _isPaused = false;
             _currentPanel.SetActive(false);
             Time.timeScale = 1f;
         }
         else
         {
+            LockPlayer();
             _isPaused = true;
-            Time.timeScale = 0f; 
-        }      
+            Time.timeScale = 0f;
+        }
     }
 
     /// <summary>
@@ -114,16 +122,14 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     private void LockPlayer()
     {
-        if(_isPaused)
-        {
-            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-            FirstPersonController.main.IsControllable = true;
-        }
-        else
-        {
-            UnityEngine.Cursor.lockState = CursorLockMode.None;
-            FirstPersonController.main.IsControllable = false;
-        }
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        FirstPersonController.main.IsControllable = false;
+    }
+
+    private void UnlockPlayer()
+    {
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        FirstPersonController.main.IsControllable = true;
     }
 
     /// <summary>
