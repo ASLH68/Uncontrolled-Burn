@@ -1813,30 +1813,20 @@ PrefabInstance:
     - target: {fileID: 6584607326466286359, guid: b511e8cac05049546808e3ac3414492a,
         type: 3}
       propertyPath: m_text
-      value: 'You are trapped within a maze. How do you choose to escape?
+      value: 'Uncontrolled Burn is pain.
 
 
-        Esc
-        - Exit Game
+        Esc - Exit Game
 
-        WASD - Move
-
-        Scroll Wheel - Item Swap
-
-        1
-        / 2 / 3 - Flame Thrower / Flame Resistant / Axe
+        WASD
+        - Move
 
         Shift (Hold) - Sprint
 
-        Space
-        - Jump
+        Space - Jump
 
-        Mouse - Look Around'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6584607326466286359, guid: b511e8cac05049546808e3ac3414492a,
-        type: 3}
-      propertyPath: m_fontStyle
-      value: 1
+        Mouse
+        - Look Around'
       objectReference: {fileID: 0}
     - target: {fileID: 6584607326529062989, guid: b511e8cac05049546808e3ac3414492a,
         type: 3}
