@@ -1521,7 +1521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510908425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26377517, y: 6.8819227, z: -0.3038344}
+  m_LocalPosition: {x: 0.5, y: 6.8819227, z: 0.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7156,7 +7156,7 @@ PrefabInstance:
     - target: {fileID: 9008786318503237952, guid: c85574b8bf6e7f5459d87f48463d2631,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3038344
+      value: 0.30383438
       objectReference: {fileID: 0}
     - target: {fileID: 9008786318503237952, guid: c85574b8bf6e7f5459d87f48463d2631,
         type: 3}
@@ -7296,6 +7296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164590610422830807, guid: 36af5edc3b7dac24c8a258a5f656f1e5,
+        type: 3}
+      propertyPath: IsControllable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36af5edc3b7dac24c8a258a5f656f1e5, type: 3}
@@ -9021,7 +9026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7529412, g: 0.50980395, b: 0.52144957, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.04838705, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9629,7 +9634,7 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3038344
+      value: 0.30383438
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}

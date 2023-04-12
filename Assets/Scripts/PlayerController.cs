@@ -5,6 +5,7 @@
 //
 // Brief Description : This document controls the Player's actions.
 *****************************************************************************/
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

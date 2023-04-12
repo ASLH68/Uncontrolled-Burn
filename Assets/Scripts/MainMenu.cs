@@ -5,6 +5,7 @@
 //
 // Brief Description : This document controls the main menu.
 *****************************************************************************/
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
