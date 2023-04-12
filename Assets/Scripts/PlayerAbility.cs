@@ -1,7 +1,6 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +20,7 @@ public class PlayerAbility : MonoBehaviour
     //[SerializeField] private GameObject ax;
     //[SerializeField] private GameObject foam;
 
-    [SerializeField] private List<GameObject> highlights; 
+    [SerializeField] private List<GameObject> highlights = new List<GameObject>(); 
 
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
@@ -48,7 +47,6 @@ public class PlayerAbility : MonoBehaviour
 
     private void Start()
     {
-        highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
         //usedItem = playerItems[currentAbility];
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         highlights[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
