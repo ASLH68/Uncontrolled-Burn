@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name :         WinBlock.cs
+// Author :            Andrea Swihart-DeCoster
+// Creation Date :     April 12th, 2023
+//
+// Brief Description : This document controls the win block that triggers the
+                       end of each level.
+*****************************************************************************/
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;

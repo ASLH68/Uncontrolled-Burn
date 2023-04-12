@@ -105,6 +105,9 @@ public class AxeController : MonoBehaviour
         _axeCollider.enabled = true;
     }
 
+    /// <summary>
+    /// Resets the axe cooldown in case it gets cancelled mid swing
+    /// </summary>
     public void ResetAxeState()
     {
         _canAttack = true;
