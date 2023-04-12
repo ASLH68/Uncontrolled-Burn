@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PlayerAbility : MonoBehaviour
 {
@@ -22,12 +21,7 @@ public class PlayerAbility : MonoBehaviour
     //[SerializeField] private GameObject ax;
     //[SerializeField] private GameObject foam;
 
-<<<<<<< Updated upstream
     [SerializeField] private List<GameObject> highlights; 
-=======
-    [SerializeField] private List<GameObject> highlights = new List<GameObject>(); 
-    [SerializeField] private List<GameObject> uiSelection = new List<GameObject>(); 
->>>>>>> Stashed changes
 
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
@@ -58,9 +52,6 @@ public class PlayerAbility : MonoBehaviour
         //usedItem = playerItems[currentAbility];
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         highlights[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
-        //uiSelection[currentAbility].transform.localScale *= 1.25f;
-        //uiSelection[currentAbility].;
-        //LayoutElement currentItemUI = uiSelection[currentAbility];
         _flamethrower = playerItems[0].GetComponent<Flamethrower>();
     }
 
@@ -75,7 +66,6 @@ public class PlayerAbility : MonoBehaviour
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
-            //uiSelection[currentAbility].transform.localScale /= 1.25f;
             currentAbility = swap - 1;
 
             // Begins the resistent selection
@@ -90,11 +80,6 @@ public class PlayerAbility : MonoBehaviour
 
             playerItems[currentAbility].SetActive(true);
             highlights[currentAbility].SetActive(true);
-            //uiSelection[currentAbility].transform.localScale *= 1.25f;
-            /*uiSelection[currentAbility].GetComponentInParent<HorizontalLayoutGroup>().CalculateLayoutInputHorizontal();
-            uiSelection[currentAbility].GetComponentInParent<HorizontalLayoutGroup>().CalculateLayoutInputVertical();
-            uiSelection[currentAbility].GetComponentInParent<HorizontalLayoutGroup>().SetLayoutHorizontal();
-            uiSelection[currentAbility].GetComponentInParent<HorizontalLayoutGroup>().SetLayoutVertical();*/
         }
     }
 
@@ -109,7 +94,6 @@ public class PlayerAbility : MonoBehaviour
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
-            //uiSelection[currentAbility].transform.localScale /= 1.25f;
 
             currentAbility += swap - 1;
 
@@ -133,11 +117,6 @@ public class PlayerAbility : MonoBehaviour
             }
             playerItems[currentAbility].SetActive(true);
             highlights[currentAbility].SetActive(true);
-            //uiSelection[currentAbility].transform.localScale *= 1.25f;
-            /*uiSelection[currentAbility].GetComponentInParent<HorizontalLayoutGroup>().CalculateLayoutInputHorizontal();
-            uiSelection[currentAbility].GetComponentInParent<HorizontalLayoutGroup>().CalculateLayoutInputVertical();
-            uiSelection[currentAbility].GetComponentInParent<HorizontalLayoutGroup>().SetLayoutHorizontal();
-            uiSelection[currentAbility].GetComponentInParent<HorizontalLayoutGroup>().SetLayoutVertical();*/
         }
     }
 
@@ -171,6 +150,8 @@ public class PlayerAbility : MonoBehaviour
 
             // This is the item using section
             actions.Player.AbilityUse.performed += ctx => AbilityUse();
+
+        actions.Player.AbilityUse.performed += ctx => Debug.Log("Howdty");
 
             // This would be used for stopping a hold down? 
             // I could probably make a different one for holding something down within the controls
