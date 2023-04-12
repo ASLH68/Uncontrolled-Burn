@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
         if (currentScene != 0)
         {
             Cursor.lockState = CursorLockMode.Locked;
-            FirstPersonController.main.IsControllable = false;
+            FirstPersonController.main.IsControllable = true;
         }
     }
 
