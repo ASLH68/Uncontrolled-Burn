@@ -21,7 +21,7 @@ public class PlayerAbility : MonoBehaviour
     //[SerializeField] private GameObject ax;
     //[SerializeField] private GameObject foam;
 
-    [SerializeField] private List<GameObject> highlights; 
+    [SerializeField] private List<GameObject> highlights = new List<GameObject>(); 
 
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
@@ -48,7 +48,7 @@ public class PlayerAbility : MonoBehaviour
 
     private void Start()
     {
-        highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
+        //highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
         //usedItem = playerItems[currentAbility];
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         highlights[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
@@ -66,7 +66,7 @@ public class PlayerAbility : MonoBehaviour
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
-            currentAbility = swap - 1;
+            currentAbility = swap /*- 1*/;
 
             // Begins the resistent selection
             if (currentAbility == 1)
@@ -95,7 +95,7 @@ public class PlayerAbility : MonoBehaviour
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
 
-            currentAbility += swap - 1;
+            currentAbility += swap /*- 1*/;
 
             // Begins the resistent selection
             if(currentAbility == 1)
@@ -158,9 +158,9 @@ public class PlayerAbility : MonoBehaviour
             //actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
 
             // This is the item swapping section
-            actions.Player.Item1.performed += ctx => AbilitySwap(1);
-            actions.Player.Item2.performed += ctx => AbilitySwap(2);
-            actions.Player.Item3.performed += ctx => AbilitySwap(3);
+            actions.Player.Item1.performed += ctx => AbilitySwap(0);
+            actions.Player.Item2.performed += ctx => AbilitySwap(1);
+            actions.Player.Item3.performed += ctx => AbilitySwap(2);
 
             actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));      
     }
