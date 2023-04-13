@@ -28,5 +28,6 @@ public class FlareGun : MonoBehaviour
         Rigidbody rb = flare.GetComponent<Rigidbody>();
 
         rb.AddForce(new Vector3(flare.transform.position.x, flare.transform.position.y, flare.transform.position.z), ForceMode.Impulse);
+        // Need to figure out what the new vector 3 does
     }
 }

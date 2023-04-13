@@ -15,13 +15,8 @@ public class PlayerAbility : MonoBehaviour
     private int numOfAbilities = 3;
 
     public int CurrentAbility => currentAbility;
-    //private GameObject usedItem;
 
-    //[SerializeField] private GameObject flamethrower;   
-    //[SerializeField] private GameObject ax;
-    //[SerializeField] private GameObject foam;
-
-    [SerializeField] private List<GameObject> highlights = new List<GameObject>(); 
+    private List<GameObject> highlights = new List<GameObject>(); 
 
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
@@ -48,8 +43,13 @@ public class PlayerAbility : MonoBehaviour
 
     private void Start()
     {
-        //highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
-        //usedItem = playerItems[currentAbility];
+        highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
+
+        foreach(GameObject highlight in highlights)
+        {
+            highlight.SetActive(false);
+        }
+
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         highlights[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         _flamethrower = playerItems[0].GetComponent<Flamethrower>();
@@ -97,7 +97,7 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void SecondAbilitySwap(int swap)
     {
-        if (!PauseMenu.main.IsPaused && currentAbility != swap)
+        if (!PauseMenu.main.IsPaused/* && currentAbility != swap*/) // Don't uncomment that part of the conditional!
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
@@ -114,8 +114,9 @@ public class PlayerAbility : MonoBehaviour
                 PlayerController.main.SelectResistance = false;
             }
 
-            if (currentAbility >= numOfAbilities)
+            if (currentAbility >= numOfAbilities) // Bruh, it only freaks out for when you're on ability 2
             {
+                Debug.Log(currentAbility + " Huh?");
                 currentAbility = 0;
             }
             else if (currentAbility < 0)
@@ -157,8 +158,6 @@ public class PlayerAbility : MonoBehaviour
 
         // This is the item using section
         actions.Player.AbilityUse.performed += ctx => AbilityUse();
-
-        actions.Player.AbilityUse.performed += ctx => Debug.Log("Howdty");
 
         // This would be used for stopping a hold down? 
         // I could probably make a different one for holding something down within the controls
