@@ -22,14 +22,10 @@ public class PlayerAbility : MonoBehaviour
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
     Flamethrower _flamethrower;
 
-    // I'm not sure if I'll use this...
-    //[SerializeField] private enum items : int { FlameThrower, Ax, Foam };
-
     // This initializes the player controls
     void Awake()
     {
         actions = new PlayerControls();
-        //actions.Enable();
 
         if (main == null)
         {
@@ -73,7 +69,7 @@ public class PlayerAbility : MonoBehaviour
                 AxeController.main.ResetAxeState();     // Allows axe to be used again if switched off mid attack
             }
 
-            currentAbility = swap /*- 1*/;
+            currentAbility = swap;
 
             // Begins the resistent selection
             if (currentAbility == 1)
@@ -102,7 +98,7 @@ public class PlayerAbility : MonoBehaviour
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
 
-            currentAbility += swap /*- 1*/;
+            currentAbility += swap;
 
             // Begins the resistent selection
             if(currentAbility == 1)
@@ -114,9 +110,8 @@ public class PlayerAbility : MonoBehaviour
                 PlayerController.main.SelectResistance = false;
             }
 
-            if (currentAbility >= numOfAbilities) // Bruh, it only freaks out for when you're on ability 2
+            if (currentAbility >= numOfAbilities)
             {
-                Debug.Log(currentAbility + " Huh?");
                 currentAbility = 0;
             }
             else if (currentAbility < 0)
