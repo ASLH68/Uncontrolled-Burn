@@ -1,6 +1,7 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -47,6 +48,7 @@ public class PlayerAbility : MonoBehaviour
 
     private void Start()
     {
+        //highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
         //usedItem = playerItems[currentAbility];
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         highlights[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
@@ -60,11 +62,18 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void AbilitySwap(int swap)
     {
-        if (!PauseMenu.main.IsPaused)
+        if (!PauseMenu.main.IsPaused && currentAbility != swap)
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
-            currentAbility = swap - 1;
+
+
+            if (currentAbility == 2 && swap != 2)
+            {
+                AxeController.main.ResetAxeState();     // Allows axe to be used again if switched off mid attack
+            }
+
+            currentAbility = swap /*- 1*/;
 
             // Begins the resistent selection
             if (currentAbility == 1)
@@ -88,12 +97,12 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void SecondAbilitySwap(int swap)
     {
-        if (!PauseMenu.main.IsPaused)
+        if (!PauseMenu.main.IsPaused && currentAbility != swap)
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
 
-            currentAbility += swap - 1;
+            currentAbility += swap /*- 1*/;
 
             // Begins the resistent selection
             if(currentAbility == 1)
@@ -144,23 +153,23 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-            actions.Enable();
+        actions.Enable();
 
-            // This is the item using section
-            actions.Player.AbilityUse.performed += ctx => AbilityUse();
+        // This is the item using section
+        actions.Player.AbilityUse.performed += ctx => AbilityUse();
 
         actions.Player.AbilityUse.performed += ctx => Debug.Log("Howdty");
 
-            // This would be used for stopping a hold down? 
-            // I could probably make a different one for holding something down within the controls
-            //actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
+        // This would be used for stopping a hold down? 
+        // I could probably make a different one for holding something down within the controls
+        //actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
 
-            // This is the item swapping section
-            actions.Player.Item1.performed += ctx => AbilitySwap(1);
-            actions.Player.Item2.performed += ctx => AbilitySwap(2);
-            actions.Player.Item3.performed += ctx => AbilitySwap(3);
+        // This is the item swapping section
+        actions.Player.Item1.performed += ctx => AbilitySwap(0);
+        actions.Player.Item2.performed += ctx => AbilitySwap(1);
+        actions.Player.Item3.performed += ctx => AbilitySwap(2);
 
-            actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));      
+        actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
     }
 
     /// <summary>

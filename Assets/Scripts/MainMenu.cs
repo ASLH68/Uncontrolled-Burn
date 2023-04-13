@@ -5,6 +5,7 @@
 //
 // Brief Description : This document controls the main menu.
 *****************************************************************************/
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
         _currentPanel = _mainMenuPanel;
     }
 

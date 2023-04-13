@@ -5,18 +5,22 @@
 //
 // Brief Description : This document is the game controller
 *****************************************************************************/
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public static GameController main;
 
+    [SerializeField] private GameObject _endScreen;
+
     private void Awake()
     {
-        if(main == null)
+        if (main == null)
         {
             main = this;
         }
@@ -24,5 +28,20 @@ public class GameController : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    private void Start()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        if (currentScene != 0)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            FirstPersonController.main.IsControllable = true;
+        }
+    }
+
+    public void DisplayEndScreen()
+    {
+        _endScreen.SetActive(true);
     }
 }

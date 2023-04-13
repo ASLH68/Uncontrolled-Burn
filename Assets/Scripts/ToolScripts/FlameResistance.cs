@@ -8,7 +8,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class FlameResistance : MonoBehaviour
@@ -17,6 +16,7 @@ public class FlameResistance : MonoBehaviour
 
     [SerializeField] private int _resistanceUses;
     //[SerializeField] private Material _resistantMaterial;
+    [SerializeField] private TextMeshProUGUI _uiResistanceUses;
 
     public int ResistanceUses => _resistanceUses;
 
@@ -47,6 +47,7 @@ public class FlameResistance : MonoBehaviour
             //applies the tag and reduces usage by one, + player feedback
             wallSeg.gameObject.tag = "FireResistant";   
             _resistanceUses--;
+            _uiResistanceUses.text = _resistanceUses.ToString();
             wallSeg.gameObject.GetComponent<Renderer>().material.color = Color.cyan;
             wallSeg.gameObject.GetComponent<WallSegment>().OriginalColor = Color.cyan;  // When hit by axe, wil remain blue
         }
