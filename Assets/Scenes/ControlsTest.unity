@@ -1289,17 +1289,17 @@ PrefabInstance:
     - target: {fileID: 9008786318503237952, guid: c85574b8bf6e7f5459d87f48463d2631,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26377517
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9008786318503237952, guid: c85574b8bf6e7f5459d87f48463d2631,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5069227
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9008786318503237952, guid: c85574b8bf6e7f5459d87f48463d2631,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3038344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9008786318503237952, guid: c85574b8bf6e7f5459d87f48463d2631,
         type: 3}
@@ -2409,12 +2409,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36af5edc3b7dac24c8a258a5f656f1e5, type: 3}
---- !u!4 &1240141039 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3638989540579757162, guid: 36af5edc3b7dac24c8a258a5f656f1e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1240141038}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1240141040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8592166796866088844, guid: 36af5edc3b7dac24c8a258a5f656f1e5,
@@ -2856,17 +2850,17 @@ PrefabInstance:
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26377517
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5069227
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3038344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81,
         type: 3}
@@ -4380,7 +4374,6 @@ Transform:
   m_Children:
   - {fileID: 814792953}
   - {fileID: 1404080333}
-  - {fileID: 1240141039}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
