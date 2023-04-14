@@ -8,18 +8,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using StarterAssets;
 
 public class Flamethrower : MonoBehaviour
 {
     [SerializeField] GameObject _fireCone;
-    [SerializeField] FirstPersonController _fpsCon;
-    AudioSource _audioSource;
-
     // Start is called before the first frame update
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -37,16 +33,10 @@ public class Flamethrower : MonoBehaviour
         if (_fireCone.activeInHierarchy)
         {
             _fireCone.SetActive(false);
-            _fpsCon.MoveSpeed *= 2;
-            _fpsCon.SprintSpeed *= 2;
-            _audioSource.Stop();
         }
         else
         {
             _fireCone.SetActive(true);
-            _fpsCon.MoveSpeed /= 2;
-            _fpsCon.SprintSpeed /= 2;
-            _audioSource.Play();
         }
     }
 
@@ -56,8 +46,5 @@ public class Flamethrower : MonoBehaviour
     private void OnDisable()
     {
         _fireCone.SetActive(false);
-        _fpsCon.MoveSpeed *= 2;
-        _fpsCon.SprintSpeed *= 2;
-        _audioSource.Stop();
     }
 }
