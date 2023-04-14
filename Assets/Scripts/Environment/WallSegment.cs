@@ -8,10 +8,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 public class WallSegment : MonoBehaviour
 {
     [SerializeField] private int _health;
+    [SerializeField]
     private bool _isResistant = false;  // If wall is resistant to fire
     int _MaxHealth;
 
@@ -20,6 +22,7 @@ public class WallSegment : MonoBehaviour
     private bool _isOnFire = false;
     private bool _isFireSource = false;
     private bool _spreadFlag = true;
+    bool _burningTwice = false;
 
     public bool IsOnFire => _isOnFire;
 
@@ -63,6 +66,21 @@ public class WallSegment : MonoBehaviour
                 _isFireSource = true;
             }
         }
+
+        if (_isOnFire)
+        {
+            _burningTwice = true;
+            StartCoroutine(SecondBurn());
+        }
+    }
+
+    /// <summary>
+    /// Called when collision ends with trigger
+    /// </summary>
+    /// <param name="other">object that exits collision</param>
+    private void OnTriggerExit(Collider other)
+    {
+        _burningTwice = false;
     }
 
     /// <summary>
@@ -164,6 +182,19 @@ public class WallSegment : MonoBehaviour
         GetComponent<Renderer>().material.color = Color.red;
 
         while (_isOnFire)
+        {
+            LoseHealth(20);
+            yield return new WaitForSeconds(.5f);
+        }
+    }
+
+    /// <summary>
+    /// Deals additional damage while fire is on
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator SecondBurn()
+    {
+        while (_burningTwice)
         {
             LoseHealth(20);
             yield return new WaitForSeconds(.5f);
