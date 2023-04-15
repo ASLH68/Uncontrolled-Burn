@@ -64,6 +64,21 @@ public class WallSegment : MonoBehaviour
                 _isFireSource = true;
             }
         }
+
+        if (_isOnFire)
+        {
+            _burningTwice = true;
+            StartCoroutine(SecondBurn());
+        }
+    }
+
+    /// <summary>
+    /// Called when collision ends with trigger
+    /// </summary>
+    /// <param name="other">object that exits collision</param>
+    private void OnTriggerExit(Collider other)
+    {
+        _burningTwice = false;
     }
 
     /// <summary>
