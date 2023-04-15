@@ -7,6 +7,7 @@
 *****************************************************************************/
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,13 @@ public class EndScreen : MonoBehaviour
     public static EndScreen main;
 
     [SerializeField] private GameObject _nextLvlButton;
+
+    [SerializeField]private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _burntTreesText;
+    [SerializeField] private TextMeshProUGUI _choppedTreesText;
+    [SerializeField] private TextMeshProUGUI _timeText;
+
+    private LevelPoints _levelPoints;   // scriptable object to use when displaying stats
 
     private void Awake()
     {
@@ -30,6 +38,10 @@ public class EndScreen : MonoBehaviour
 
     private void Start()
     {
+        _scoreText = GameObject.Find("Score Stat").GetComponentInChildren<TextMeshProUGUI>();
+        _burntTreesText = GameObject.Find("Tree Burnt Stat").GetComponentInChildren<TextMeshProUGUI>();
+        _choppedTreesText = GameObject.Find("Tree Axe Stat").GetComponentInChildren<TextMeshProUGUI>();
+        _timeText = GameObject.Find("Time Stat").GetComponentInChildren<TextMeshProUGUI>();
         CheckLastLevel();
     }
 
@@ -66,5 +78,14 @@ public class EndScreen : MonoBehaviour
     private void HideNextLevelButton()
     {
         _nextLvlButton.SetActive(false);
+    }
+
+    /// <summary>
+    /// Sets the instance of levelPoints used to display player/level stats
+    /// </summary>
+    /// <param name="levelPoints"></param>
+    public void SetLevelPoints(LevelPoints levelPoints)
+    {
+        _levelPoints = levelPoints;
     }
 }

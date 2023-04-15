@@ -102,6 +102,7 @@ public class WallSegment : MonoBehaviour
     /// </summary>
     private void DestroySegment()
     {
+        GameController.main.DestroyTree();
         Destroy(gameObject);
     }
 

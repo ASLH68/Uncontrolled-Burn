@@ -15,8 +15,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController main;
-
     [SerializeField] private GameObject _endScreen;
+    [SerializeField] private LevelPoints _levelPoints;
 
     private void Awake()
     {
@@ -40,8 +40,21 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Displays the end-level screen
+    /// </summary>
     public void DisplayEndScreen()
     {
         _endScreen.SetActive(true);
+        _levelPoints.CalculateScore();
+        EndScreen.main.GetComponent<EndScreen>().SetLevelPoints(_levelPoints);
+    }
+
+    /// <summary>
+    /// Increments destroyed trees by 1
+    /// </summary>
+    public void DestroyTree()
+    {
+        _levelPoints.DestroyTree();
     }
 }

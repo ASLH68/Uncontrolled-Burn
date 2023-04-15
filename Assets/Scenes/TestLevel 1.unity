@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.4862745, g: 0.69411767, b: 0.8117647, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.025
@@ -6924,7 +6924,7 @@ PrefabInstance:
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.6
+      value: 5.58
       objectReference: {fileID: 0}
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
@@ -6934,7 +6934,7 @@ PrefabInstance:
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.76
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
@@ -6985,6 +6985,12 @@ PrefabInstance:
       propertyPath: _endScreen
       value: 
       objectReference: {fileID: 545300155}
+    - target: {fileID: -6224253355657701930, guid: 01eb5c72934af9944af378ed7b3f0077,
+        type: 3}
+      propertyPath: _levelPoints
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a5859bc68d01074f821092883cc211f,
+        type: 2}
     - target: {fileID: 838515200853755573, guid: 01eb5c72934af9944af378ed7b3f0077,
         type: 3}
       propertyPath: m_RootOrder
@@ -7283,7 +7289,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.2e-44, y: 0, z: 0, w: 2.3164883}
+  m_BoundingSphereOverride: {x: 0, y: 3.95e-43, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7435,6 +7441,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EndScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802122116601187254, guid: 28f846aca7a14454f965d18efb001f38,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6802122116601187277, guid: 28f846aca7a14454f965d18efb001f38,
         type: 3}
