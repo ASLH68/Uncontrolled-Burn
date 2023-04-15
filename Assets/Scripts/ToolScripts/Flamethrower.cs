@@ -36,10 +36,16 @@ public class Flamethrower : MonoBehaviour
         if (_fireCone.activeInHierarchy)
         {
             _fireCone.SetActive(false);
+            _fpsCon.MoveSpeed *= 2;
+            _fpsCon.SprintSpeed *= 2;
+            _audioSource.Stop();
         }
         else
         {
             _fireCone.SetActive(true);
+            _fpsCon.MoveSpeed /= 2;
+            _fpsCon.SprintSpeed /= 2;
+            _audioSource.Play();
         }
     }
 
@@ -49,5 +55,8 @@ public class Flamethrower : MonoBehaviour
     private void OnDisable()
     {
         _fireCone.SetActive(false);
+        _fpsCon.MoveSpeed *= 2;
+        _fpsCon.SprintSpeed *= 2;
+        _audioSource.Stop();
     }
 }
