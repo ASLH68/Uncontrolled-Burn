@@ -20,6 +20,7 @@ public class WallSegment : MonoBehaviour
     private bool _isOnFire = false;
     private bool _isFireSource = false;
     private bool _spreadFlag = true;
+    bool _burningTwice = false;
 
     public bool IsOnFire => _isOnFire;
 
