@@ -12,10 +12,13 @@ using StarterAssets;
 public class Flamethrower : MonoBehaviour
 {
     [SerializeField] GameObject _fireCone;
+    [SerializeField] FirstPersonController _fpsCon;
+    AudioSource _audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
