@@ -16,7 +16,8 @@ public class PlayerAbility : MonoBehaviour
 
     public int CurrentAbility => currentAbility;
 
-    private List<GameObject> highlights = new List<GameObject>(); 
+    private List<GameObject> highlights = new List<GameObject>();
+    private List<GameObject> uiSlot = new List<GameObject>();
 
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
@@ -43,12 +44,16 @@ public class PlayerAbility : MonoBehaviour
 
         foreach(GameObject highlight in highlights)
         {
+            uiSlot.Add(highlight.transform.parent.gameObject);
+
             highlight.SetActive(false);
         }
 
         playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         highlights[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
         _flamethrower = playerItems[0].GetComponent<Flamethrower>();
+
+        uiSlot[currentAbility].transform.localScale *= 1.25f;
     }
 
     /// <summary>
@@ -62,6 +67,7 @@ public class PlayerAbility : MonoBehaviour
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
+            uiSlot[currentAbility].transform.localScale /= 1.25f;
 
 
             if (currentAbility == 2 && swap != 2)
@@ -83,6 +89,7 @@ public class PlayerAbility : MonoBehaviour
 
             playerItems[currentAbility].SetActive(true);
             highlights[currentAbility].SetActive(true);
+            uiSlot[currentAbility].transform.localScale *= 1.25f;
         }
     }
 
@@ -97,6 +104,7 @@ public class PlayerAbility : MonoBehaviour
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
+            uiSlot[currentAbility].transform.localScale /= 1.25f;
 
             currentAbility += swap;
 
@@ -120,6 +128,7 @@ public class PlayerAbility : MonoBehaviour
             }
             playerItems[currentAbility].SetActive(true);
             highlights[currentAbility].SetActive(true);
+            uiSlot[currentAbility].transform.localScale *= 1.25f;
         }
     }
 
