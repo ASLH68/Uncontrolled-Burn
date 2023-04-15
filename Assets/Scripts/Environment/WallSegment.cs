@@ -186,4 +186,18 @@ public class WallSegment : MonoBehaviour
             yield return new WaitForSeconds(.5f);
         }
     }
+   
+    /// <summary>
+    /// Deals additional damage while fire is on
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator SecondBurn()
+    {
+        while (_burningTwice)
+        {
+            LoseHealth(20);
+            yield return new WaitForSeconds(.5f);
+        }
+    }
+
 }
