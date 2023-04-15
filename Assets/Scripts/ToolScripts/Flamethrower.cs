@@ -8,7 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using StarterAssets;
 public class Flamethrower : MonoBehaviour
 {
     [SerializeField] GameObject _fireCone;
