@@ -68,17 +68,23 @@ public class LevelPoints : ScriptableObject
     public void CalculateScore()
     {
         _score -= _treesBurnt * _pointsPerBurntTree;
-        
+
         // Calculates how many points are reduced if enough trees are cut down
-        if((int)(_treesChopped/_treesChoppedThreshhold) > 0)
+        if (_treesChopped != 0 && _treesChoppedThreshhold != 0) // Prevents division by 0
         {
-            _score -= (int)(_treesChopped / _treesChoppedThreshhold) * _pointsPerTreesChopped;
+            if ((int)(_treesChopped / _treesChoppedThreshhold) > 0)
+            {
+                _score -= (int)(_treesChopped / _treesChoppedThreshhold) * _pointsPerTreesChopped;
+            }
         }
 
         // Calculates how many points a reduced based on how long the player took to beat the level
-        if(GameController.main.CurrentTimer.FinalTime / _timeThreshhold > 0)
+        if (_timeThreshhold != 0)   // prevents division by 0
         {
-            _score -= (int)(GameController.main.CurrentTimer.FinalTime / _timeThreshhold) * _pointsPerTimeMet;
+            if (GameController.main.CurrentTimer.FinalTime / _timeThreshhold > 0)
+            {
+                _score -= (int)(GameController.main.CurrentTimer.FinalTime / _timeThreshhold) * _pointsPerTimeMet;
+            }
         }
 
         // Prevents score from going negative
