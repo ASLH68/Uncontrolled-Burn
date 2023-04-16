@@ -15014,6 +15014,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5059560630417031105, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: FTMoveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059560630417031105, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: FTSprintSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5059560630417031105, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: DefaultMoveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5322940124137715958, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: _uiResistanceUses

@@ -14,14 +14,28 @@ namespace StarterAssets
 		public static FirstPersonController main;
 
 		[Header("Player")]
-		[Tooltip("Move speed of the character in m/s")]
+		[Tooltip("Move speed of the character being used for movement (change during playthrough) in m/s")]
 		public float MoveSpeed = 4.0f;
-		[Tooltip("Sprint speed of the character in m/s")]
+		[Tooltip("Sprint speed of the character being used for movement (change during playthrough) in m/s")]
 		public float SprintSpeed = 6.0f;
 		[Tooltip("Rotation speed of the character")]
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
+
+		[Header("Player Defaults")]
+		[Tooltip("Move initial speed of the character in m/s")]
+		public float DefaultMoveSpeed = 4.0f;
+		[Tooltip("Sprint initial speed of the character in m/s")]
+		public float DefaultSprintSpeed = 6.0f;
+
+        [Header("Player Flamethrower Speeds")]
+        [Tooltip("Move speed of the character holding the flame thrower in m/s")]
+		public float FTMoveSpeed = 4.0f;
+		[Tooltip("Sprint speed of the character holding the flame thrower in m/s")]
+		public float FTSprintSpeed = 6.0f;
+
+
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
