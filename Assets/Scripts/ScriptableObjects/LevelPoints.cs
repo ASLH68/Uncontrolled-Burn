@@ -80,6 +80,12 @@ public class LevelPoints : ScriptableObject
         {
             _score -= (int)(GameController.main.CurrentTimer.FinalTime / _timeThreshhold) * _pointsPerTimeMet;
         }
+
+        // Prevents score from going negative
+        if(_score < 0)
+        {
+            _score = 0;
+        }
         
     }
 
