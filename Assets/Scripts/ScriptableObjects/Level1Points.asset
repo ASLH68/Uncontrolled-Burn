@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Level1Points
   m_EditorClassIdentifier: 
   _defaultScore: 100
-  _treesBurnt: 0
+  _treesBurnt: 6
   _treesChopped: 0
-  _pointsPerBurntTree: 0
+  _pointsPerBurntTree: 10
   _pointsPerTreesChopped: 5
   _treesChoppedThreshhold: 3
   _pointsPerTimeMet: 5
-  _timeThreshhold: 30
+  _timeThreshhold: 5
