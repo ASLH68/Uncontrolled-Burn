@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838515200853755573}
   - component: {fileID: -6224253355657701930}
+  - component: {fileID: 6506595852398105074}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -44,3 +45,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c032dbc877af454ab3540cc5eb52503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _endScreen: {fileID: 0}
+  _levelPoints: {fileID: 0}
+  _timerManager: {fileID: 6506595852398105074}
+--- !u!114 &6506595852398105074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838515200853755574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0455559540ec5c40989e24ca672c43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentTime: 0
+  _countDown: 0
+  IsRunning: 1
+  _format: 2

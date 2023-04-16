@@ -431,6 +431,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextLvlButton: {fileID: 6802122117212083622}
+  _scoreText: {fileID: 2786966747799821256}
+  _burntTreesText: {fileID: 8578001284251132563}
+  _choppedTreesText: {fileID: 6978458926940280008}
+  _timeText: {fileID: 3481524756184102870}
 --- !u!1 &6802122116903675483
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,12 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private LevelPoints _levelPoints;
 
+    [SerializeField] private TimerManager _timerManager;    // Per level timer
+
+    public TimerManager CurrentTimer => _timerManager;
+
+    public LevelPoints CurrentLevelPoints => _levelPoints;
+
     private void Awake()
     {
         if (main == null)
@@ -45,16 +51,26 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void DisplayEndScreen()
     {
+        _timerManager.IsRunning = false;
         _endScreen.SetActive(true);
         _levelPoints.CalculateScore();
-        EndScreen.main.GetComponent<EndScreen>().SetLevelPoints(_levelPoints);
+        EndScreen.main.GetComponent<EndScreen>().DisplayData();
     }
 
     /// <summary>
     /// Increments destroyed trees by 1
     /// </summary>
-    public void DestroyTree()
+    /// <param name="isOnFire"> T = Increments burnt trees if the tree was on fire </param>
+    public void DestroyTree(bool isOnFire)
     {
-        _levelPoints.DestroyTree();
+        if(isOnFire)
+        {
+            _levelPoints.BurnTree();
+        }
+        else
+        {
+            _levelPoints.ChopTree();
+        }
+       
     }
 }

@@ -120,7 +120,15 @@ public class WallSegment : MonoBehaviour
     /// </summary>
     private void DestroySegment()
     {
-        GameController.main.DestroyTree();
+        if(IsOnFire)
+        {
+            GameController.main.DestroyTree(true);
+        }
+        else
+        {
+            GameController.main.DestroyTree(false);
+        }
+        
         Destroy(gameObject);
     }
 

@@ -84,8 +84,21 @@ public class EndScreen : MonoBehaviour
     /// Sets the instance of levelPoints used to display player/level stats
     /// </summary>
     /// <param name="levelPoints"></param>
-    public void SetLevelPoints(LevelPoints levelPoints)
+    private void SetLevelPoints()
     {
-        _levelPoints = levelPoints;
+        _levelPoints = GameController.main.CurrentLevelPoints;
+    }
+
+    /// <summary>
+    /// Calls the data helper functions for display
+    /// </summary>
+    public void DisplayData()
+    {
+        SetLevelPoints();
+
+        _scoreText.text = "Score: " + _levelPoints.Score + " / " + _levelPoints.DefaultScore;
+        _burntTreesText.text = "Trees Burnt Down: " + _levelPoints.TreesBurnt;
+        _choppedTreesText.text = "Trees Chopped Down: " + _levelPoints.TreesChopped;
+        _timeText.text = "Time: " + GameController.main.CurrentTimer.GetTime();
     }
 }
