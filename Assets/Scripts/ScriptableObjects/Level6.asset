@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28ac3b60d8f3cd440889933acd8ff335, type: 3}
-  m_Name: Level4Points
+  m_Name: Level6
   m_EditorClassIdentifier: 
   _defaultScore: 100
   _treesBurnt: 0
   _treesChopped: 0
-  _pointsPerBurntTree: 5
+  _pointsPerBurntTree: 1
   _pointsPerTreesChopped: 1
-  _treesChoppedThreshhold: 10
+  _treesChoppedThreshhold: 2
   _pointsPerTimeMet: 10
   _timeThreshhold: 30

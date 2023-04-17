@@ -6593,6 +6593,12 @@ PrefabInstance:
       propertyPath: _endScreen
       value: 
       objectReference: {fileID: 186768014}
+    - target: {fileID: -6224253355657701930, guid: 01eb5c72934af9944af378ed7b3f0077,
+        type: 3}
+      propertyPath: _levelPoints
+      value: 
+      objectReference: {fileID: 11400000, guid: 7442212ff1df19744bb687c15c8c2a2f,
+        type: 2}
     - target: {fileID: 838515200853755573, guid: 01eb5c72934af9944af378ed7b3f0077,
         type: 3}
       propertyPath: m_RootOrder

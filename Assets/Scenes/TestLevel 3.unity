@@ -5046,6 +5046,12 @@ PrefabInstance:
       propertyPath: _endScreen
       value: 
       objectReference: {fileID: 1039643914}
+    - target: {fileID: -6224253355657701930, guid: 01eb5c72934af9944af378ed7b3f0077,
+        type: 3}
+      propertyPath: _levelPoints
+      value: 
+      objectReference: {fileID: 11400000, guid: aa8152a5bd0310b42980f4ea01039df9,
+        type: 2}
     - target: {fileID: 838515200853755573, guid: 01eb5c72934af9944af378ed7b3f0077,
         type: 3}
       propertyPath: m_RootOrder

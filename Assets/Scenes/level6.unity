@@ -5967,6 +5967,12 @@ PrefabInstance:
       propertyPath: _endScreen
       value: 
       objectReference: {fileID: 545300155}
+    - target: {fileID: -6224253355657701930, guid: 01eb5c72934af9944af378ed7b3f0077,
+        type: 3}
+      propertyPath: _levelPoints
+      value: 
+      objectReference: {fileID: 11400000, guid: 48b3c44d4da0bcc4dbec0855a18788d4,
+        type: 2}
     - target: {fileID: 838515200853755573, guid: 01eb5c72934af9944af378ed7b3f0077,
         type: 3}
       propertyPath: m_RootOrder
@@ -7013,6 +7019,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5322940124137715958, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: _resistanceUses
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5322940124137715958, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: _uiResistanceUses
