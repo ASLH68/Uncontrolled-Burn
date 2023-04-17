@@ -9,11 +9,12 @@ TagManager:
   - CinemachineTarget
   - FireResistant
   - WallSegment
+  - ItemSlot
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - WallSegment
   - Water
   - UI
   - 

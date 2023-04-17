@@ -1743,7 +1743,7 @@ GameObject:
   - component: {fileID: 7589662919568798102}
   - component: {fileID: 4496898840944258049}
   m_Layer: 5
-  m_Name: Resistance count
+  m_Name: Resistance Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

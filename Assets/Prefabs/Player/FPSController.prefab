@@ -62,7 +62,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8866667, y: 1}
+    m_SensorSize: {x: 1.7785939, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -306,6 +306,11 @@ PrefabInstance:
       propertyPath: playerItems.Array.data[2]
       value: 
       objectReference: {fileID: 8211164371768009244}
+    - target: {fileID: 724115202682735723, guid: 1f90b50c13e5c7641b6b871877527c8b,
+        type: 3}
+      propertyPath: _layerMask.m_Bits
+      value: 1032
+      objectReference: {fileID: 0}
     - target: {fileID: 1659520837715913445, guid: 1f90b50c13e5c7641b6b871877527c8b,
         type: 3}
       propertyPath: _camera

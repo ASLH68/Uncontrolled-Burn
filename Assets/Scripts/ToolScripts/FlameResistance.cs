@@ -32,6 +32,12 @@ public class FlameResistance : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _uiResistanceUses = GameObject.Find("Resistance Count").GetComponent<TextMeshProUGUI>();
+        _uiResistanceUses.text = _resistanceUses.ToString();
+    }
+
     /// <summary>
     /// Applies the reistant tag and reduces amount of item uses
     /// </summary>
@@ -48,8 +54,8 @@ public class FlameResistance : MonoBehaviour
             wallSeg.gameObject.tag = "FireResistant";   
             _resistanceUses--;
             _uiResistanceUses.text = _resistanceUses.ToString();
-            wallSeg.gameObject.GetComponent<Renderer>().material.color = Color.cyan;
-            wallSeg.gameObject.GetComponent<WallSegment>().OriginalColor = Color.cyan;  // When hit by axe, wil remain blue
+            wallSeg.gameObject.GetComponent<Renderer>().material.color = Color.black;
+            wallSeg.gameObject.GetComponent<WallSegment>().OriginalColor = Color.black;  // When hit by axe, wil remain blue
         }
         else
         {

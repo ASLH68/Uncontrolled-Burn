@@ -17,7 +17,7 @@ public class WallSegment : MonoBehaviour
 
     public bool IsResistant => _isResistant;
 
-    private bool _isOnFire = false;
+    [SerializeField] private bool _isOnFire = false;
     private bool _isFireSource = false;
     private bool _spreadFlag = true;
     bool _burningTwice = false;

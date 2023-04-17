@@ -40,6 +40,7 @@ public class PlayerAbility : MonoBehaviour
 
     private void Start()
     {
+        currentAbility = 0;
         highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
 
         foreach(GameObject highlight in highlights)
@@ -172,7 +173,7 @@ public class PlayerAbility : MonoBehaviour
         actions.Player.Item2.performed += ctx => AbilitySwap(1);
         actions.Player.Item3.performed += ctx => AbilitySwap(2);
 
-        actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
+        //actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
     }
 
     /// <summary>
