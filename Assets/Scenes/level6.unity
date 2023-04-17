@@ -7019,6 +7019,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.303833
+      objectReference: {fileID: 0}
     - target: {fileID: 5322940124137715958, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: _resistanceUses
@@ -7034,6 +7039,11 @@ PrefabInstance:
       propertyPath: _fpsCon
       value: 
       objectReference: {fileID: 8897768473868816518}
+    - target: {fileID: 7477768680715726318, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.303833
+      objectReference: {fileID: 0}
     - target: {fileID: 8897768473504843916, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: m_Name
@@ -7057,7 +7067,7 @@ PrefabInstance:
     - target: {fileID: 8897768473504843919, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.81
+      value: 60.8
       objectReference: {fileID: 0}
     - target: {fileID: 8897768473504843919, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}

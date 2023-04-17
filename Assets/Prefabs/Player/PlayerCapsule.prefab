@@ -207,6 +207,10 @@ MonoBehaviour:
   SprintSpeed: 6
   RotationSpeed: 1
   SpeedChangeRate: 10
+  DefaultMoveSpeed: 4
+  DefaultSprintSpeed: 6
+  FTMoveSpeed: 2
+  FTSprintSpeed: 3
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.1
@@ -398,10 +402,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentAbility: 0
-  highlights:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   playerItems:
   - {fileID: 1659520837715913447}
   - {fileID: 1110511984682750951}

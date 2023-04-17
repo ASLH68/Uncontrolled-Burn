@@ -16,11 +16,14 @@ using UnityEngine.SocialPlatforms.Impl;
 [CreateAssetMenu(fileName = "Star Rating", menuName = "Star Rating")]
 public class LevelPoints : ScriptableObject
 {
-    [SerializeField] private int _defaultScore = 100;   // Starting / Max points
+    [SerializeField] [Tooltip("Initial Score")]
+    private int _defaultScore = 100;   // Starting / Max points
 
-    [SerializeField] private int _treesBurnt;   // num trees destroyed by fire
-    [SerializeField] private int _treesChopped; // num trees chopped
-    [SerializeField] private int _pointsPerBurntTree;    // points lost per tree
+    private int _treesBurnt;   // num trees destroyed by fire
+    private int _treesChopped; // num trees chopped
+
+    [SerializeField][Tooltip("Points deducted for every tree burnt")]
+    private int _pointsPerBurntTree;    // points lost per tree
 
     [SerializeField] [Tooltip("Points that will be deducted if the tree chopped threshhold is met")] 
     private int _pointsPerTreesChopped = 0;
@@ -28,10 +31,10 @@ public class LevelPoints : ScriptableObject
     [SerializeField] [Tooltip("number of trees that must be destroyed by an axe in order to lose x amount of points")]
     private int _treesChoppedThreshhold = 0;
     
-    [SerializeField] [Tooltip("Points that will be deducted if the tree chopped threshhold is met")] 
+    [SerializeField] [Tooltip("Points that will be deducted if the time threshhold is met")] 
     private int _pointsPerTimeMet = 10;
 
-    [SerializeField] [Tooltip("number of trees that must be destroyed by an axe in order to lose x amount of points")]
+    [SerializeField] [Tooltip("Every time the player plays for this time, they lose x amount of points")]
     private float _timeThreshhold = 30;
 
     private int _score;     // Final score
@@ -92,7 +95,14 @@ public class LevelPoints : ScriptableObject
         {
             _score = 0;
         }
-        
+    }
+
+    public void ResetStats()
+    {
+        _treesBurnt = 0;
+        _treesChopped = 0;
+        _score = _defaultScore;
+        GameController.main.CurrentTimer.ResetTime();
     }
 
     /// <summary>
@@ -102,5 +112,6 @@ public class LevelPoints : ScriptableObject
     {
         _treesBurnt = 0;
         _treesBurnt = 0;
+        _score = _defaultScore;
     }
 }

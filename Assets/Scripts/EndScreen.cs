@@ -81,6 +81,15 @@ public class EndScreen : MonoBehaviour
     }
 
     /// <summary>
+    /// Restarts the current level
+    /// </summary>
+    public void RestartLevel()
+    {
+        GameController.main.CurrentLevelPoints.ResetStats();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    /// <summary>
     /// Sets the instance of levelPoints used to display player/level stats
     /// </summary>
     /// <param name="levelPoints"></param>

@@ -47,6 +47,11 @@ public class TimerManager : MonoBehaviour
     {
         return _currentTime.ToString(_timeFormats[_format]);
     }
+
+    public void ResetTime()
+    {
+        _currentTime = 0.0f;
+    }
 }
 
 public enum TimerFormats
