@@ -149,7 +149,6 @@ public class PlayerAbility : MonoBehaviour
             switch (currentAbility)
             {
                 case 0:
-                    _flamethrower.CastFire();
                     break;
                 case 1:
                     break;

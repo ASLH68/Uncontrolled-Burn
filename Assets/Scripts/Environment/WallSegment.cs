@@ -25,7 +25,7 @@ public class WallSegment : MonoBehaviour
     public bool IsOnFire => _isOnFire;
 
     public Color OriginalColor;
-    AudioSource _audioSource;
+    //AudioSource _audioSource;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -34,7 +34,7 @@ public class WallSegment : MonoBehaviour
     {
         _MaxHealth = _health;
         OriginalColor = gameObject.GetComponent<Renderer>().material.color;
-        _audioSource = GetComponent<AudioSource>();
+        //_audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -189,7 +189,7 @@ public class WallSegment : MonoBehaviour
     IEnumerator BurnDown()
     {
         GetComponent<Renderer>().material.color = Color.red;
-        _audioSource.Play();
+        //_audioSource.Play();
 
         while (_isOnFire)
         {

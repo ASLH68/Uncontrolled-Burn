@@ -24,7 +24,20 @@ public class Flamethrower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!PauseMenu.main.IsPaused)
+        {
+            // Toggles on and off flamethrower
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                CastFire();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                CastFire();
+            }
+        }
+
     }
 
     /// <summary>
