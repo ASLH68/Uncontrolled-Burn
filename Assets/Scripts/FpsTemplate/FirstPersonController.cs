@@ -15,9 +15,9 @@ namespace StarterAssets
 
 		[Header("Player")]
 		[Tooltip("Move speed of the character being used for movement (change during playthrough) in m/s")]
-		public float MoveSpeed = 4.0f;
+		public float MoveSpeed = 6.0f;
 		[Tooltip("Sprint speed of the character being used for movement (change during playthrough) in m/s")]
-		public float SprintSpeed = 6.0f;
+		public float SprintSpeed = 8.0f;
 		[Tooltip("Rotation speed of the character")]
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
@@ -25,9 +25,9 @@ namespace StarterAssets
 
 		[Header("Player Defaults")]
 		[Tooltip("Move initial speed of the character in m/s")]
-		public float DefaultMoveSpeed = 4.0f;
+		public float DefaultMoveSpeed = 6.0f;
 		[Tooltip("Sprint initial speed of the character in m/s")]
-		public float DefaultSprintSpeed = 6.0f;
+		public float DefaultSprintSpeed = 8.0f;
 
         [Header("Player Flamethrower Speeds")]
         [Tooltip("Move speed of the character holding the flame thrower in m/s")]

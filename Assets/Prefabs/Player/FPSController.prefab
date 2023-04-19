@@ -212,7 +212,7 @@ PrefabInstance:
     - target: {fileID: 5261547888318013741, guid: 2147f27eabdb1ea4aab39a3a6d14ceb3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.26377517
+      value: -2.6637752
       objectReference: {fileID: 0}
     - target: {fileID: 5261547888318013741, guid: 2147f27eabdb1ea4aab39a3a6d14ceb3,
         type: 3}
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: 5261547888318013741, guid: 2147f27eabdb1ea4aab39a3a6d14ceb3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.30383438
+      value: 5.2938347
       objectReference: {fileID: 0}
     - target: {fileID: 5261547888318013741, guid: 2147f27eabdb1ea4aab39a3a6d14ceb3,
         type: 3}
@@ -319,7 +319,27 @@ PrefabInstance:
     - target: {fileID: 3613371357380061688, guid: 1f90b50c13e5c7641b6b871877527c8b,
         type: 3}
       propertyPath: MoveSpeed
-      value: 3.5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613371357380061688, guid: 1f90b50c13e5c7641b6b871877527c8b,
+        type: 3}
+      propertyPath: FTMoveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613371357380061688, guid: 1f90b50c13e5c7641b6b871877527c8b,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613371357380061688, guid: 1f90b50c13e5c7641b6b871877527c8b,
+        type: 3}
+      propertyPath: FTSprintSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613371357380061688, guid: 1f90b50c13e5c7641b6b871877527c8b,
+        type: 3}
+      propertyPath: DefaultMoveSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3613371357380061695, guid: 1f90b50c13e5c7641b6b871877527c8b,
         type: 3}
