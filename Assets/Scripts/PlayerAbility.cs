@@ -107,6 +107,11 @@ public class PlayerAbility : MonoBehaviour
             highlights[currentAbility].SetActive(false);
             uiSlot[currentAbility].transform.localScale /= 1.25f;
 
+            if (currentAbility == 2 && swap != 2)
+            {
+                AxeController.main.ResetAxeState();     // Allows axe to be used again if switched off mid attack
+            }
+
             currentAbility += swap;
 
             // Begins the resistent selection
@@ -173,7 +178,7 @@ public class PlayerAbility : MonoBehaviour
         actions.Player.Item2.performed += ctx => AbilitySwap(1);
         actions.Player.Item3.performed += ctx => AbilitySwap(2);
 
-        //actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
+        actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
     }
 
     /// <summary>
