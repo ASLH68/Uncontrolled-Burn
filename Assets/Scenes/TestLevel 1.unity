@@ -5301,7 +5301,7 @@ PrefabInstance:
     - target: {fileID: 7552492505189358165, guid: adc158633e2c03448911dfa81577db4a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7552492505189358165, guid: adc158633e2c03448911dfa81577db4a,
         type: 3}
@@ -5677,7 +5677,7 @@ Transform:
   - {fileID: 605821316}
   - {fileID: 686492821}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &821557494
 PrefabInstance:
@@ -7646,7 +7646,7 @@ Transform:
   - {fileID: 1823732980}
   - {fileID: 1466370113}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1310263260
 PrefabInstance:
@@ -8184,7 +8184,7 @@ PrefabInstance:
     - target: {fileID: 7477768680715726319, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 2.256909
+      value: 1.7785939
       objectReference: {fileID: 0}
     - target: {fileID: 8897768473504843916, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
@@ -8246,6 +8246,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9087982008032172639, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: playerItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 1911018445}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1539fa49a79e5fe49a6bf43cc34d6b75, type: 3}
 --- !u!114 &1399073319 stripped
@@ -11321,6 +11326,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1903387181}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1911018445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3794623486961843351, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+    type: 3}
+  m_PrefabInstance: {fileID: 1399073318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1920576849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12253,7 +12264,7 @@ PrefabInstance:
     - target: {fileID: 5192064794313175359, guid: b304f952500cb2f45a6b8f438309490d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5192064794313175359, guid: b304f952500cb2f45a6b8f438309490d,
         type: 3}
@@ -12362,7 +12373,7 @@ PrefabInstance:
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
@@ -12834,7 +12845,7 @@ PrefabInstance:
     - target: {fileID: 6802122116601187277, guid: 28f846aca7a14454f965d18efb001f38,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6802122116601187277, guid: 28f846aca7a14454f965d18efb001f38,
         type: 3}
