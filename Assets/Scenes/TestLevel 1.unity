@@ -8226,6 +8226,11 @@ PrefabInstance:
       propertyPath: _fpsCon
       value: 
       objectReference: {fileID: 1399073319}
+    - target: {fileID: 7139789686146414358, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7422463004853669604, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: m_IsActive
