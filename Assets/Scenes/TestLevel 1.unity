@@ -8156,6 +8156,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 435984308759364031, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: _resistanceUses
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 458376720620569452, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8165,6 +8175,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.30383438
+      objectReference: {fileID: 0}
+    - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794623486961843344, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794623486961843351, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5059560630417031105, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
@@ -8181,6 +8226,11 @@ PrefabInstance:
       propertyPath: _fpsCon
       value: 
       objectReference: {fileID: 1399073319}
+    - target: {fileID: 7422463004853669604, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7477768680715726319, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x

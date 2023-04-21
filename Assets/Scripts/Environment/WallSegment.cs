@@ -21,8 +21,15 @@ public class WallSegment : MonoBehaviour
     private bool _isFireSource = false;
     private bool _spreadFlag = true;
     bool _burningTwice = false;
+    private float _sizeIncrease = 1.2f;
 
+    private Vector3 _originalScale; // Starting scale of the object
+    [HideInInspector] public Vector3 OriginalScale => _originalScale;
     public bool IsOnFire => _isOnFire;
+    private Vector3 _bigScale;  // size the obj becomes when it grows
+    [HideInInspector] public Vector3 BigScale => _bigScale;
+    private bool _isBig = false;
+    public bool IsBig => _isBig;
 
     public Color OriginalColor;
     //AudioSource _audioSource;
@@ -35,6 +42,11 @@ public class WallSegment : MonoBehaviour
         _MaxHealth = _health;
         OriginalColor = gameObject.GetComponent<Renderer>().material.color;
         //_audioSource = GetComponent<AudioSource>();
+        _originalScale = transform.localScale;
+        // Sets the big scale to *_sizeIncrease
+        _bigScale.x = _originalScale.x * _sizeIncrease;
+        _bigScale.y = _originalScale.y * _sizeIncrease;
+        _bigScale.z = _originalScale.z * _sizeIncrease;
     }
 
     /// <summary>
@@ -209,6 +221,24 @@ public class WallSegment : MonoBehaviour
             LoseHealth(20);
             yield return new WaitForSeconds(.5f);
         }
+    }
+
+    /// <summary>
+    /// Increases obj size
+    /// </summary>
+    public void Grow()
+    {
+        transform.localScale = BigScale;
+        _isBig = true;
+    }
+
+    /// <summary>
+    /// Decreases obj size
+    /// </summary>
+    public void Shrink()
+    {
+        transform.localScale = OriginalScale;
+        _isBig = false;
     }
 
 }

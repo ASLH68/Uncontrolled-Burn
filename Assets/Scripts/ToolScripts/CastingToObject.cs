@@ -32,7 +32,7 @@ public class CastingToObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // If player is using the select resistance item
+        /*// If player is using the select resistance item
         if (PlayerController.main.SelectResistance)
         {
             if (Physics.Raycast(_mainCamera.transform.position, transform.TransformDirection(Vector3.forward), out theObject, 10f, _layerMask) 
@@ -65,7 +65,7 @@ public class CastingToObject : MonoBehaviour
         else if (_castedObject != null && !_castedObject.CompareTag("FireResistant"))
         {
             ResetObject();
-        }
+        }*/
     }
 
     /// <summary>
