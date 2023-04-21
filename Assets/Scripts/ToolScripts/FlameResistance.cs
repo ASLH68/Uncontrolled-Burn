@@ -47,23 +47,35 @@ public class FlameResistance : MonoBehaviour
         {
             FlameResistance.main.UseItem();
         }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            DisableAllHighlights();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_resistanceUses > 0 && _resistanceUses > _highlightedSegments.Count)
+        if (_resistanceUses > 0)
         {
-            if (IsValidSegment(other.gameObject) && !_highlightedSegments.Contains(other.gameObject.GetComponent<WallSegment>()))
+/*            if (_resistanceUses == _highlightedSegments.Count)
             {
-                WallSegment tempObj = other.GetComponent<WallSegment>();
-                _highlightedSegments.Add(tempObj);
-
-                SelectedFlash selectedFlash = tempObj.GetComponent<SelectedFlash>();
-                if (!selectedFlash.startedFlashing)
+                RemoveFromHighlight(_highlightedSegments[0].gameObject);
+                //_highlightedSegments.RemoveAt(0);
+            }*/
+            if (_resistanceUses > _highlightedSegments.Count)
+            {
+                if (IsValidSegment(other.gameObject) && !_highlightedSegments.Contains(other.gameObject.GetComponent<WallSegment>()))
                 {
-                    tempObj.Grow();
-                    selectedFlash.SetStartFlashing(true);
-                    selectedFlash.BeginFlashing();
+                    WallSegment tempObj = other.GetComponent<WallSegment>();
+                    _highlightedSegments.Add(tempObj);
+
+                    SelectedFlash selectedFlash = tempObj.GetComponent<SelectedFlash>();
+                    if (!selectedFlash.startedFlashing)
+                    {
+                        tempObj.Grow();
+                        selectedFlash.SetStartFlashing(true);
+                        selectedFlash.BeginFlashing();
+                    }
                 }
             }
         }
@@ -71,10 +83,23 @@ public class FlameResistance : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (IsValidSegment(other.gameObject) && _highlightedSegments.Contains(other.gameObject.GetComponent<WallSegment>()))
+        RemoveFromHighlight(other.gameObject, false);
+    }
+
+    /// <summary>
+    /// Removes the game object from the highlight system
+    /// </summary>
+    /// <param name="obj"></param>
+    private void RemoveFromHighlight(GameObject obj, bool clearingAll)
+    {
+        if (IsValidSegment(obj) && _highlightedSegments.Contains(obj.GetComponent<WallSegment>()))
         {
-            WallSegment tempObj = other.GetComponent<WallSegment>();
-            _highlightedSegments.Remove(other.GetComponent<WallSegment>());         
+            WallSegment tempObj = obj.GetComponent<WallSegment>();
+
+            if (!clearingAll)
+            {
+                _highlightedSegments.Remove(obj.GetComponent<WallSegment>());
+            }
 
             SelectedFlash selectedFlash = tempObj.GetComponent<SelectedFlash>();
             if (selectedFlash.startedFlashing)
@@ -82,6 +107,21 @@ public class FlameResistance : MonoBehaviour
                 tempObj.Shrink();
                 selectedFlash.SetStartFlashing(false);
             }
+        }
+    }
+
+    /// <summary>
+    /// Makes all highlighted objects stop being highlighted
+    /// </summary>
+    public void DisableAllHighlights()
+    {
+        if (_highlightedSegments.Count > 0)
+        {
+            foreach (WallSegment wallSeg in _highlightedSegments)
+            {
+                RemoveFromHighlight(wallSeg.gameObject, true);
+            }
+            _highlightedSegments.Clear();
         }
     }
 

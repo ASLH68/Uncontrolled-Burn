@@ -75,6 +75,10 @@ public class PlayerAbility : MonoBehaviour
             {
                 AxeController.main.ResetAxeState();     // Allows axe to be used again if switched off mid attack
             }
+            if(currentAbility == 1 && swap != 1)
+            {
+                FlameResistance.main.DisableAllHighlights();    // Removes currently highlighted trees from selection
+            }
 
             currentAbility = swap;
 
@@ -110,6 +114,10 @@ public class PlayerAbility : MonoBehaviour
             if (currentAbility == 2 && swap != 2)
             {
                 AxeController.main.ResetAxeState();     // Allows axe to be used again if switched off mid attack
+            }
+            if (currentAbility == 1 && swap != 1)
+            {
+                FlameResistance.main.DisableAllHighlights();    // Removes currently highlighted trees from selection
             }
 
             currentAbility += swap;
