@@ -37,6 +37,20 @@ public class LevelPoints : ScriptableObject
     [SerializeField] [Tooltip("Every time the player plays for this time, they lose x amount of points")]
     private float _timeThreshhold = 30;
 
+    [Header("Point Grades")]
+    [Tooltip("The minimum points needed for each grade")]
+    [SerializeField] int _SPoints = 100;
+    [SerializeField] int _APoints = 90;
+    [SerializeField] int _BPoints = 80;
+    [SerializeField] int _CPoints = 70;
+    [SerializeField] int _DPoints = 60 ;
+    [SerializeField] int _FPoints = 0;
+
+    private Grades _finalGrade = Grades.I; // Final grade based on score earned
+    public Grades FinalGrade => _finalGrade;
+
+    private bool _hasCompletedLvl = false; // If player has completed the level
+
     private int _score;     // Final score
 
     public int Score => _score;
@@ -47,6 +61,14 @@ public class LevelPoints : ScriptableObject
     private void Awake()
     {
         _score = _defaultScore;
+    }
+
+    /// <summary>
+    /// All possible grades
+    /// </summary>
+    public enum Grades
+    {
+        S, A, B, C, D , F, I
     }
 
     /// <summary>
@@ -95,6 +117,30 @@ public class LevelPoints : ScriptableObject
         {
             _score = 0;
         }
+
+        CalculateGrade();
+    }
+
+    private void CalculateGrade()
+    {
+        if (_score >= _FPoints)
+            _finalGrade = Grades.F;
+
+        if (_score >= _DPoints)
+            _finalGrade = Grades.D;
+
+        if (_score >= _CPoints)
+            _finalGrade = Grades.C;
+
+        if (_score >= _BPoints)
+            _finalGrade = Grades.B;
+
+        if (_score >= _APoints)
+            _finalGrade = Grades.A;
+
+        if (_score >= _SPoints)
+            _finalGrade = Grades.S;
+
     }
 
     public void ResetStats()
@@ -113,5 +159,7 @@ public class LevelPoints : ScriptableObject
         _treesBurnt = 0;
         _treesBurnt = 0;
         _score = _defaultScore;
+        _finalGrade = Grades.I;
+        _hasCompletedLvl = false;
     }
 }

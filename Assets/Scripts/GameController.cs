@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             FirstPersonController.main.IsControllable = true;
+            CurrentLevelPoints.ResetStats();
         }
     }
 
