@@ -21,7 +21,6 @@ public class PlayerAbility : MonoBehaviour
 
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
-    Flamethrower _flamethrower;
 
     // This initializes the player controls
     void Awake()
@@ -43,6 +42,7 @@ public class PlayerAbility : MonoBehaviour
         currentAbility = 0;
         highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
 
+        // This grabs all of the highlights and uislots
         foreach(GameObject highlight in highlights)
         {
             uiSlot.Add(highlight.transform.parent.gameObject);
@@ -50,9 +50,23 @@ public class PlayerAbility : MonoBehaviour
             highlight.SetActive(false);
         }
 
-        playerItems[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
-        highlights[currentAbility].SetActive(true); // You will get errors unless you put objects in the list
-        _flamethrower = playerItems[0].GetComponent<Flamethrower>();
+        // This grabs all of the tools
+        playerItems = new List<GameObject>(GameObject.FindGameObjectsWithTag("Tool"));
+
+        // Ah, ha ha. This made it out of order, so this next part will put it in order
+        #region FixToolOrder
+        GameObject temp = playerItems[0];
+        playerItems[0] = playerItems[2];
+        playerItems[2] = temp;
+        #endregion
+
+        foreach (GameObject tool in playerItems)
+        {
+            tool.SetActive(false);
+        }
+
+        playerItems[currentAbility].SetActive(true);
+        highlights[currentAbility].SetActive(true);
 
         uiSlot[currentAbility].transform.localScale *= 1.25f;
     }

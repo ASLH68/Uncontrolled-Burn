@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5672788713963051139}
   m_Layer: 0
   m_Name: FlameResistant
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resistanceUses: 3
   _uiResistanceUses: {fileID: 0}
+  _highlightedSegments: []
 --- !u!33 &2243906961433668112
 MeshFilter:
   m_ObjectHideFlags: 0

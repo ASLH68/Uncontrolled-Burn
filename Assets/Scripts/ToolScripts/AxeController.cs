@@ -24,6 +24,8 @@ public class AxeController : MonoBehaviour
     [SerializeField] private AudioSource _axeHitSound;
     private bool _hasHit = false;
 
+    private PlayerControls playerActions;
+
     private void Awake()
     {
         if(main == null)
@@ -34,6 +36,8 @@ public class AxeController : MonoBehaviour
         {
             Destroy(this);
         }
+
+        playerActions = new PlayerControls();
     }
 
     private void Start()
@@ -41,13 +45,13 @@ public class AxeController : MonoBehaviour
         _axeCollider.enabled = false;
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetMouseButtonDown(0) && _canAttack)
         {
             AxeAttack();
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
@@ -65,12 +69,15 @@ public class AxeController : MonoBehaviour
     /// </summary>
     public void AxeAttack()
     {
-        Invoke("EnableColliders", 1f);
-        _isAttacking = true;
-        _canAttack = false;
-        Animator anim = _axe.GetComponent<Animator>();
-        anim.SetTrigger("Attack");
-        StartCoroutine(ResetAttackCooldown());
+        if(_canAttack)
+        {
+            Invoke("EnableColliders", 1f);
+            _isAttacking = true;
+            _canAttack = false;
+            Animator anim = _axe.GetComponent<Animator>();
+            anim.SetTrigger("Attack");
+            StartCoroutine(ResetAttackCooldown());
+        }
     }
 
     /// <summary>
@@ -116,4 +123,15 @@ public class AxeController : MonoBehaviour
         _hasHit = false;
     }
 
+    private void OnEnable()
+    {
+        playerActions.Enable();
+
+        playerActions.Player.AbilityUse.performed += ctx => AxeAttack();
+    }
+
+    private void OnDisable()
+    {
+        playerActions.Disable();
+    }
 }
