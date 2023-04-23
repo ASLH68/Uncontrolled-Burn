@@ -37,8 +37,7 @@ public class LevelPoints : ScriptableObject
     [SerializeField] [Tooltip("Every time the player plays for this time, they lose x amount of points")]
     private float _timeThreshhold = 30;
 
-    [Header("Point Grades")]
-    [Tooltip("The minimum points needed for each grade")]
+    [Header("Minimum Points to Earn Grade")] 
     [SerializeField] int _SPoints = 100;
     [SerializeField] int _APoints = 90;
     [SerializeField] int _BPoints = 80;
