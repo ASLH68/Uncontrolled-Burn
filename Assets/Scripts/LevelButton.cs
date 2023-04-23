@@ -1,21 +1,28 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelButton : MonoBehaviour
 {
-    //[SerializeField] private int starsNeeded;
-    //[SerializeField] private int whichLevel;
+    [SerializeField] private int _levelNum;
+    [SerializeField] private TextMeshProUGUI _levelScoreText;
 
-    public void GoToLevel(int level)
+    private void Start()
     {
-        //if()
-        // I'll code the star system later, we're just going through tutorials for now
+        //_levelScoreText = transform.Find("Grade Text").gameObject.GetComponent<TextMeshProUGUI>();
+    }
 
-        // I could probably change this to a string, just so the game doesn't break
+    public void GoToLevel()
+    {
         Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(_levelNum);
+    }
+
+    public void UpdateLevelScore(string newGrade)
+    {
+        _levelScoreText.text = newGrade;
     }
 }
