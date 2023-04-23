@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerAbility : MonoBehaviour
 {
     public static PlayerAbility main;
-    PlayerControls actions;
+    public PlayerControls actions;
 
     // Ability Variables
     [SerializeField] private int currentAbility = 0; // It's serialized so the player can start with X ability
@@ -147,36 +147,11 @@ public class PlayerAbility : MonoBehaviour
     }
 
     /// <summary>
-    /// This happens when the player uses the [Right Mouse Button]
-    /// It will switch case through the different abilities and select the right one ;)
-    /// </summary>
-    private void AbilityUse()
-    {
-        switch (currentAbility)
-        {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-
-        }
-    }
-
-    /// <summary>
     /// This is where the events get put in for what happens when you click a button
     /// </summary>
     private void OnEnable()
     {
         actions.Enable();
-
-        // This is the item using section
-        actions.Player.AbilityUse.performed += ctx => AbilityUse();
-
-        // This would be used for stopping a hold down? 
-        // I could probably make a different one for holding something down within the controls
-        //actions.Player.AbilityUse.canceled += ctx => AbilityUse(); // Commented out for now, cause bugs
 
         // This is the item swapping section
         actions.Player.Item1.performed += ctx => AbilitySwap(0);
@@ -184,7 +159,6 @@ public class PlayerAbility : MonoBehaviour
         actions.Player.Item3.performed += ctx => AbilitySwap(2);
 
         actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
-
     }
 
     /// <summary>

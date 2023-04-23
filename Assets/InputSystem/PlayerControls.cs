@@ -71,6 +71,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AbilityStartAndRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f6a81b4-dabe-4d4b-9646-d445422fc7dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -161,6 +170,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""AbilityUse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ecb27c9d-7075-417f-8acb-5709f3d3c257"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AbilityStartAndRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -174,6 +194,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Item3 = m_Player.FindAction("Item3", throwIfNotFound: true);
         m_Player_ItemScroll = m_Player.FindAction("ItemScroll", throwIfNotFound: true);
         m_Player_AbilityUse = m_Player.FindAction("AbilityUse", throwIfNotFound: true);
+        m_Player_AbilityStartAndRelease = m_Player.FindAction("AbilityStartAndRelease", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,6 +259,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Item3;
     private readonly InputAction m_Player_ItemScroll;
     private readonly InputAction m_Player_AbilityUse;
+    private readonly InputAction m_Player_AbilityStartAndRelease;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -247,6 +269,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Item3 => m_Wrapper.m_Player_Item3;
         public InputAction @ItemScroll => m_Wrapper.m_Player_ItemScroll;
         public InputAction @AbilityUse => m_Wrapper.m_Player_AbilityUse;
+        public InputAction @AbilityStartAndRelease => m_Wrapper.m_Player_AbilityStartAndRelease;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -271,6 +294,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @AbilityUse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityUse;
                 @AbilityUse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityUse;
                 @AbilityUse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityUse;
+                @AbilityStartAndRelease.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityStartAndRelease;
+                @AbilityStartAndRelease.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityStartAndRelease;
+                @AbilityStartAndRelease.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbilityStartAndRelease;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -290,6 +316,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @AbilityUse.started += instance.OnAbilityUse;
                 @AbilityUse.performed += instance.OnAbilityUse;
                 @AbilityUse.canceled += instance.OnAbilityUse;
+                @AbilityStartAndRelease.started += instance.OnAbilityStartAndRelease;
+                @AbilityStartAndRelease.performed += instance.OnAbilityStartAndRelease;
+                @AbilityStartAndRelease.canceled += instance.OnAbilityStartAndRelease;
             }
         }
     }
@@ -301,5 +330,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnItem3(InputAction.CallbackContext context);
         void OnItemScroll(InputAction.CallbackContext context);
         void OnAbilityUse(InputAction.CallbackContext context);
+        void OnAbilityStartAndRelease(InputAction.CallbackContext context);
     }
 }

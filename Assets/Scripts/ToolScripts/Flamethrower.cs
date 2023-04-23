@@ -15,27 +15,27 @@ public class Flamethrower : MonoBehaviour
     [SerializeField] FirstPersonController _fpsCon;
     AudioSource _audioSource;
 
+    PlayerControls playerActions;
+
+    /// <summary>
+    /// Grabs a playercontrols map, tbh idk what this actually does...
+    /// </summary>
+    private void Awake()
+    {
+        playerActions = new PlayerControls();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void WillItFire()
     {
-        if (!PauseMenu.main.IsPaused)
-        {          
-            // Toggles on and off flamethrower
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                CastFire();
-            }
-
-            if (Input.GetKeyUp(KeyCode.Mouse0))
-            {
-                CastFire();
-            }
+        if(!PauseMenu.main.IsPaused)
+        {
+            CastFire();
         }
     }
 
@@ -62,7 +62,17 @@ public class Flamethrower : MonoBehaviour
     }
 
     /// <summary>
-    /// Called when object is disabled
+    /// This enables player controls, specifically the one where the player shoots fire
+    /// </summary>
+    private void OnEnable()
+    {
+        playerActions.Enable();
+
+        playerActions.Player.AbilityStartAndRelease.performed += ctx => WillItFire();
+    }
+
+    /// <summary>
+    /// This removes the flamethrower cone, it sets the speeds to default, it turns off the sound, and it disables player controls
     /// </summary>
     private void OnDisable()
     {
@@ -70,5 +80,7 @@ public class Flamethrower : MonoBehaviour
         _fpsCon.MoveSpeed = _fpsCon.DefaultMoveSpeed;
         _fpsCon.SprintSpeed = _fpsCon.DefaultSprintSpeed;
         _audioSource.Stop();
+
+        playerActions.Disable();
     }
 }
