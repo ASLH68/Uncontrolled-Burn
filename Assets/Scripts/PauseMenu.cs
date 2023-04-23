@@ -100,20 +100,23 @@ public class PauseMenu : MonoBehaviour
     /// <param name="scene"></param>
     public void PauseGame()
     {
-        SetCurrentPanel(_pauseMenuPanel);
+        if (!GameController.main.EndScreenActive)
+        {
+            SetCurrentPanel(_pauseMenuPanel);
 
-        if (_isPaused)
-        {
-            UnlockPlayer();
-            _isPaused = false;
-            _currentPanel.SetActive(false);
-            Time.timeScale = 1f;
-        }
-        else
-        {
-            LockPlayer();
-            _isPaused = true;
-            Time.timeScale = 0f;
+            if (_isPaused)
+            {
+                UnlockPlayer();
+                _currentPanel.SetActive(false);
+                Time.timeScale = 1f;
+                _isPaused = false;
+            }
+            else
+            {
+                LockPlayer();
+                Time.timeScale = 0f;
+                _isPaused = true;
+            }
         }
     }
 
@@ -126,6 +129,9 @@ public class PauseMenu : MonoBehaviour
         FirstPersonController.main.IsControllable = false;
     }
 
+    /// <summary>
+    /// Unlocks the player and allows for movement
+    /// </summary>
     private void UnlockPlayer()
     {
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;

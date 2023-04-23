@@ -25,7 +25,7 @@ public class Flamethrower : MonoBehaviour
     void Update()
     {
         if (!PauseMenu.main.IsPaused)
-        {
+        {          
             // Toggles on and off flamethrower
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -37,7 +37,6 @@ public class Flamethrower : MonoBehaviour
                 CastFire();
             }
         }
-
     }
 
     /// <summary>

@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
 
     public LevelPoints CurrentLevelPoints => _levelPoints;
 
+    public bool EndScreenActive => _endScreen.activeSelf;  // If the end screen is active
+
     private void Awake()
     {
         if (main == null)

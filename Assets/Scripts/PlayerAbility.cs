@@ -152,17 +152,15 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void AbilityUse()
     {
-        if (!PauseMenu.main.IsPaused)
+        switch (currentAbility)
         {
-            switch (currentAbility)
-            {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-            }
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+
         }
     }
 
@@ -186,6 +184,7 @@ public class PlayerAbility : MonoBehaviour
         actions.Player.Item3.performed += ctx => AbilitySwap(2);
 
         actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
+
     }
 
     /// <summary>
