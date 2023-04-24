@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 226, y: 245.1}
+  m_AnchoredPosition: {x: 367, y: 245.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2440904939960195231
@@ -445,7 +445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -468, y: 245.1}
+  m_AnchoredPosition: {x: -756, y: 245.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8894123677818594391
@@ -845,6 +845,8 @@ MonoBehaviour:
   _burntTreesText: {fileID: 8578001284251132563}
   _choppedTreesText: {fileID: 6978458926940280008}
   _timeText: {fileID: 3481524756184102870}
+  _gradeText: {fileID: 5626351859727518696}
+  _summaryText: {fileID: 6003797943589722751}
 --- !u!1 &6802122116903675483
 GameObject:
   m_ObjectHideFlags: 0

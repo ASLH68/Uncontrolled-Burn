@@ -51,6 +51,10 @@ public class LevelPoints : ScriptableObject
     private bool _hasCompletedLvl = false; // If player has completed the level
 
     private int _score;     // Final score
+    
+    public int TreesChoppedScore { get; private set; } // Score lost to trees chopped
+    public int TreesBurntScore { get; private set; }   // Score lost to trees burnt
+    public int TreesChoppedThreshhold => _treesChoppedThreshhold;
 
     public int Score => _score;
     public int DefaultScore => _defaultScore;
@@ -91,14 +95,16 @@ public class LevelPoints : ScriptableObject
     /// </summary>
     public void CalculateScore()
     {
-        _score -= _treesBurnt * _pointsPerBurntTree;
+        TreesBurntScore = _treesBurnt * _pointsPerBurntTree;
+        _score -= TreesBurntScore;
 
         // Calculates how many points are reduced if enough trees are cut down
         if (_treesChopped != 0 && _treesChoppedThreshhold != 0) // Prevents division by 0
         {
             if ((int)(_treesChopped / _treesChoppedThreshhold) > 0)
             {
-                _score -= (int)(_treesChopped / _treesChoppedThreshhold) * _pointsPerTreesChopped;
+                TreesChoppedScore = (int)(_treesChopped / _treesChoppedThreshhold) * _pointsPerTreesChopped;
+                _score -= TreesChoppedScore;
             }
         }
 
@@ -155,6 +161,8 @@ public class LevelPoints : ScriptableObject
     /// </summary>
     private void OnDisable()
     {
+        TreesChoppedScore = 0;
+        TreesBurntScore = 0;
         _treesBurnt = 0;
         _treesBurnt = 0;
         _score = _defaultScore;

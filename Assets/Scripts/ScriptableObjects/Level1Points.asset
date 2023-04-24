@@ -18,3 +18,9 @@ MonoBehaviour:
   _treesChoppedThreshhold: 4
   _pointsPerTimeMet: 10
   _timeThreshhold: 30
+  _SPoints: 100
+  _APoints: 90
+  _BPoints: 80
+  _CPoints: 70
+  _DPoints: 60
+  _FPoints: 0
