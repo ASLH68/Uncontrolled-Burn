@@ -72,7 +72,6 @@ public class FlameResistance : MonoBehaviour
                     SelectedFlash selectedFlash = tempObj.GetComponent<SelectedFlash>();
                     if (!selectedFlash.startedFlashing)
                     {
-                        tempObj.Grow();
                         selectedFlash.SetStartFlashing(true);
                         selectedFlash.BeginFlashing();
                     }
@@ -104,7 +103,6 @@ public class FlameResistance : MonoBehaviour
             SelectedFlash selectedFlash = tempObj.GetComponent<SelectedFlash>();
             if (selectedFlash.startedFlashing)
             {
-                tempObj.Shrink();
                 selectedFlash.SetStartFlashing(false);
             }
         }
@@ -146,8 +144,8 @@ public class FlameResistance : MonoBehaviour
                     wallSeg.gameObject.tag = "FireResistant";
                     _resistanceUses--;
                     _uiResistanceUses.text = _resistanceUses.ToString();
-                    wallSeg.gameObject.GetComponent<Renderer>().material.color = Color.black;
-                    wallSeg.gameObject.GetComponent<WallSegment>().OriginalColor = Color.black;  // When hit by axe, wil remain blue
+                    wallSeg.gameObject.GetComponent<Renderer>().material = wallSeg.GetComponent<WallSegment>().LitMaterial;
+                    wallSeg.gameObject.GetComponent<WallSegment>().OriginalColor = Color.white; // When hit by axe, wil remain blue
                 }               
             }
             _highlightedSegments.Clear();
