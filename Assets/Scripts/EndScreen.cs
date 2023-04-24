@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,14 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _burntTreesText;
     [SerializeField] private TextMeshProUGUI _choppedTreesText;
     [SerializeField] private TextMeshProUGUI _timeText;
+    [SerializeField] private TextMeshProUGUI _gradeText;
+
+    [Header("Summary Information")]
+    [SerializeField] private TextMeshProUGUI _summaryText;
+    private int _unhomedAnimals;
+/*   [SerializeField] private string _goodSummary;
+    [SerializeField] private string _neutralSummary;
+    [SerializeField] private string _badSummary;*/
 
     private LevelPoints _levelPoints;   // scriptable object to use when displaying stats
 
@@ -42,6 +51,7 @@ public class EndScreen : MonoBehaviour
         _burntTreesText = GameObject.Find("Tree Burnt Stat").GetComponentInChildren<TextMeshProUGUI>();
         _choppedTreesText = GameObject.Find("Tree Axe Stat").GetComponentInChildren<TextMeshProUGUI>();
         _timeText = GameObject.Find("Time Stat").GetComponentInChildren<TextMeshProUGUI>();
+
         CheckLastLevel();
     }
 
@@ -109,5 +119,44 @@ public class EndScreen : MonoBehaviour
         _burntTreesText.text = "Trees Burnt Down: " + _levelPoints.TreesBurnt;
         _choppedTreesText.text = "Trees Chopped Down: " + _levelPoints.TreesChopped;
         _timeText.text = "Time: " + GameController.main.CurrentTimer.GetTime();
+
+        _gradeText.text = "Grade: " + _levelPoints.FinalGrade.ToString();
+
+        DisplaySummary();
+    }
+
+    /// <summary>
+    /// Displays the summary based on how the levels destruction
+    /// </summary>
+    private void DisplaySummary()
+    {
+        CalcAnimalsUnhomed();
+
+        if (_unhomedAnimals == 0)
+        {
+            _summaryText.text = "You managed to reach the end without destroying any trees! You saved all the animals!";
+        }
+        else if (_levelPoints.TreesChopped >= _levelPoints.TreesChoppedThreshhold * 2 ||
+            _levelPoints.TreesBurntScore <= 10)
+        {
+            _summaryText.text = "You destroyed the homes of " + _unhomedAnimals + " animals.";
+        }
+        else if (_levelPoints.TreesChopped >= _levelPoints.TreesChoppedThreshhold * 3 ||
+            _levelPoints.TreesBurntScore < 20)
+        {
+            _summaryText.text = "You left total destruction in your wake, destroying the homes of " + _unhomedAnimals;
+        }
+        else
+        {
+            _summaryText.text = "Deforestation removes carbon sinks and burning trees contributes to climate change. You've done both, you're an awful person.";
+        }
+    }
+
+    /// <summary>
+    /// Calculates semi random numbers of animals unhomed based on # of destroyed trees
+    /// </summary>
+    private void CalcAnimalsUnhomed()
+    {
+        _unhomedAnimals = (_levelPoints.TreesBurnt + _levelPoints.TreesChopped) * Random.Range(3, 4);
     }
 }

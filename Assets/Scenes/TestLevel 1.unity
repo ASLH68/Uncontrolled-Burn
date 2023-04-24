@@ -7946,6 +7946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.5069227
+      objectReference: {fileID: 0}
+    - target: {fileID: 541488804255891316, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.30383438
       objectReference: {fileID: 0}
@@ -7984,6 +7989,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4708289637933391811, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: _resistanceUses
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5059560630417031105, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: JumpHeight
@@ -8012,7 +8022,7 @@ PrefabInstance:
     - target: {fileID: 7477768680715726319, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7785939
+      value: 1.7781495
       objectReference: {fileID: 0}
     - target: {fileID: 8897768473504843916, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
@@ -11895,7 +11905,7 @@ PrefabInstance:
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.83
+      value: 4.86
       objectReference: {fileID: 0}
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
@@ -11905,7 +11915,7 @@ PrefabInstance:
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.77
+      value: 24.22
       objectReference: {fileID: 0}
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
