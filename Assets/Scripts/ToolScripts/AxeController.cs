@@ -72,7 +72,7 @@ public class AxeController : MonoBehaviour
     {
         if(_canAttack)
         {
-            Invoke("EnableColliders", 0.75f);
+            Invoke("EnableColliders", 1f);
             _isAttacking = true;
             _canAttack = false;
             Animator anim = _axe.GetComponent<Animator>();
