@@ -55,12 +55,13 @@ public class AxeController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if((other.CompareTag("WallSegment") || other.CompareTag("FireResistant")) && _isAttacking)
+        if((other.CompareTag("WallSegment") || other.CompareTag("FireResistant")) && _isAttacking && !_hasHit)
         {
             other.GetComponent<Animator>().SetTrigger("Hit");
             other.GetComponent<WallSegment>().LoseHealth(_attackDamage, true);
             _hasHit = true;
             PlayHitSound();
+            DisableColliders();
         }
     }
 
@@ -71,7 +72,7 @@ public class AxeController : MonoBehaviour
     {
         if(_canAttack)
         {
-            Invoke("EnableColliders", 1f);
+            Invoke("EnableColliders", 0.75f);
             _isAttacking = true;
             _canAttack = false;
             Animator anim = _axe.GetComponent<Animator>();
@@ -112,6 +113,11 @@ public class AxeController : MonoBehaviour
         _axeCollider.enabled = true;
     }
 
+    private void DisableColliders()
+    {
+        _axeCollider.enabled = false;
+    }
+
     /// <summary>
     /// Resets the axe cooldown in case it gets cancelled mid swing
     /// </summary>
@@ -121,6 +127,7 @@ public class AxeController : MonoBehaviour
         _isAttacking = false;
         _axeCollider.enabled = false;
         _hasHit = false;
+        DisableColliders();
     }
 
     private void OnEnable()
