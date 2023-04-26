@@ -36,6 +36,10 @@ public class WallSegment : MonoBehaviour
     public Material LitMaterial => _litMaterial;
     //AudioSource _audioSource;
 
+    // Particle stuff
+    [SerializeField] private ParticleSystem smoke;
+    private GameObject smokeObj;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -142,7 +146,9 @@ public class WallSegment : MonoBehaviour
         {
             GameController.main.DestroyTree(false);
         }
-        
+
+        Destroy(smokeObj);
+
         Destroy(gameObject);
     }
 
@@ -204,6 +210,9 @@ public class WallSegment : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = Color.red;
         //_audioSource.Play();
+
+        smokeObj = Instantiate(smoke, transform.position + new Vector3(0, GetComponent<Renderer>().bounds.size.y/2),
+            Quaternion.identity).gameObject;
 
         while (_isOnFire)
         {
