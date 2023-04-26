@@ -11,7 +11,7 @@ public class PlayerAbility : MonoBehaviour
     public PlayerControls actions;
 
     // Ability Variables
-    [SerializeField] private int currentAbility = 0; // It's serialized so the player can start with X ability
+    /*[SerializeField]*/ private int currentAbility = 0; // It's serialized so the player can start with X ability
     private int numOfAbilities = 3;
 
     public int CurrentAbility => currentAbility;
@@ -39,7 +39,7 @@ public class PlayerAbility : MonoBehaviour
 
     private void Start()
     {
-        currentAbility = 0;
+        //currentAbility = 0;
         highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
 
         // This grabs all of the highlights and uislots
@@ -60,6 +60,10 @@ public class PlayerAbility : MonoBehaviour
         playerItems[2] = temp;
         #endregion
 
+#if UNITY_STANDALONE
+        currentAbility = 1;     
+#endif
+
         foreach (GameObject tool in playerItems)
         {
             tool.SetActive(false);
@@ -78,7 +82,7 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void AbilitySwap(int swap)
     {
-        if (!PauseMenu.main.IsPaused && currentAbility != swap)
+        if (!PauseMenu.main.IsPaused && currentAbility != swap && !GameController.main.EndScreenActive)
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
@@ -89,10 +93,17 @@ public class PlayerAbility : MonoBehaviour
             {
                 AxeController.main.ResetAxeState();     // Allows axe to be used again if switched off mid attack
             }
-            if(currentAbility == 1 && swap != 1)
+#if UNITY_STANDALONE
+            if(currentAbility == 0 && swap !=0)
             {
                 FlameResistance.main.DisableAllHighlights();    // Removes currently highlighted trees from selection
             }
+#else
+if(currentAbility == 1 && swap != 1)
+            {
+                FlameResistance.main.DisableAllHighlights();    // Removes currently highlighted trees from selection
+            }
+#endif
 
             currentAbility = swap;
 
@@ -119,7 +130,7 @@ public class PlayerAbility : MonoBehaviour
     /// </summary>
     private void SecondAbilitySwap(int swap)
     {
-        if (!PauseMenu.main.IsPaused/* && currentAbility != swap*/) // Don't uncomment that part of the conditional!
+        if (!PauseMenu.main.IsPaused && !GameController.main.EndScreenActive/* && currentAbility != swap*/) // Don't uncomment that part of the conditional!
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
@@ -166,11 +177,17 @@ public class PlayerAbility : MonoBehaviour
     private void OnEnable()
     {
         actions.Enable();
+#if UNITY_EDITOR
 
         // This is the item swapping section
         actions.Player.Item1.performed += ctx => AbilitySwap(0);
         actions.Player.Item2.performed += ctx => AbilitySwap(1);
         actions.Player.Item3.performed += ctx => AbilitySwap(2);
+#else
+        actions.Player.Item1.performed += ctx => AbilitySwap(1);
+        actions.Player.Item2.performed += ctx => AbilitySwap(0);
+        actions.Player.Item3.performed += ctx => AbilitySwap(2);
+#endif
 
         actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
     }

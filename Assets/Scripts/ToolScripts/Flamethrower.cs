@@ -33,7 +33,7 @@ public class Flamethrower : MonoBehaviour
 
     private void WillItFire()
     {
-        if(!PauseMenu.main.IsPaused)
+        if(!PauseMenu.main.IsPaused && !GameController.main.EndScreenActive)
         {
             CastFire();
         }
