@@ -22,6 +22,9 @@ public class PlayerAbility : MonoBehaviour
     // Objects to grab
     [SerializeField] private List<GameObject> playerItems = new List<GameObject>();
 
+    private Vector3 normalSize;
+    private Vector3 largeSize;
+
     // This initializes the player controls
     void Awake()
     {
@@ -40,29 +43,35 @@ public class PlayerAbility : MonoBehaviour
     private void Start()
     {
         //currentAbility = 0;
-        highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
+        //highlights = new List<GameObject>(GameObject.FindGameObjectsWithTag("ItemSlot"));
+
+        highlights.Add(GameObject.Find("Tool1 Highlight"));
+        highlights.Add(GameObject.Find("Tool2 Highlight"));
+        highlights.Add(GameObject.Find("Tool3 Highlight"));
 
         // This grabs all of the highlights and uislots
         foreach(GameObject highlight in highlights)
         {
-            uiSlot.Add(highlight.transform.parent.gameObject);
+            //uiSlot.Add(highlight.transform.parent.gameObject);
 
             highlight.SetActive(false);
         }
 
+        uiSlot.Add(GameObject.Find("Tool 1"));
+        uiSlot.Add(GameObject.Find("Tool 2"));
+        uiSlot.Add(GameObject.Find("Tool 3"));
+
         // This grabs all of the tools
-        playerItems = new List<GameObject>(GameObject.FindGameObjectsWithTag("Tool"));
+       // playerItems = new List<GameObject>(GameObject.FindGameObjectsWithTag("Tool"));
 
         // Ah, ha ha. This made it out of order, so this next part will put it in order
-        #region FixToolOrder
-        GameObject temp = playerItems[0];
-        playerItems[0] = playerItems[2];
-        playerItems[2] = temp;
-        #endregion
+        //#region FixToolOrder
+        //GameObject temp = playerItems[0];
+        //playerItems[0] = playerItems[2];
+        //playerItems[2] = temp;
+        //#endregion
 
-#if UNITY_STANDALONE
-        currentAbility = 1;     
-#endif
+
 
         foreach (GameObject tool in playerItems)
         {
@@ -72,7 +81,11 @@ public class PlayerAbility : MonoBehaviour
         playerItems[currentAbility].SetActive(true);
         highlights[currentAbility].SetActive(true);
 
-        uiSlot[currentAbility].transform.localScale *= 1.25f;
+        // Setting sizes
+        normalSize = uiSlot[currentAbility].transform.localScale;
+        largeSize = uiSlot[currentAbility].transform.localScale * 1.25f;
+
+        uiSlot[currentAbility].transform.localScale = largeSize;
     }
 
     /// <summary>
@@ -86,24 +99,18 @@ public class PlayerAbility : MonoBehaviour
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
-            uiSlot[currentAbility].transform.localScale /= 1.25f;
+            uiSlot[currentAbility].transform.localScale = normalSize;
 
 
             if (currentAbility == 2 && swap != 2)
             {
                 AxeController.main.ResetAxeState();     // Allows axe to be used again if switched off mid attack
             }
-#if UNITY_STANDALONE
+
             if(currentAbility == 0 && swap !=0)
             {
                 FlameResistance.main.DisableAllHighlights();    // Removes currently highlighted trees from selection
             }
-#else
-if(currentAbility == 1 && swap != 1)
-            {
-                FlameResistance.main.DisableAllHighlights();    // Removes currently highlighted trees from selection
-            }
-#endif
 
             currentAbility = swap;
 
@@ -119,7 +126,8 @@ if(currentAbility == 1 && swap != 1)
 
             playerItems[currentAbility].SetActive(true);
             highlights[currentAbility].SetActive(true);
-            uiSlot[currentAbility].transform.localScale *= 1.25f;
+            uiSlot[currentAbility].transform.localScale = normalSize; //just set the damn size // Ok Zach, fine
+
         }
     }
 
@@ -134,7 +142,7 @@ if(currentAbility == 1 && swap != 1)
         {
             playerItems[currentAbility].SetActive(false);
             highlights[currentAbility].SetActive(false);
-            uiSlot[currentAbility].transform.localScale /= 1.25f;
+            uiSlot[currentAbility].transform.localScale = normalSize;
 
             if (currentAbility == 2 && swap != 2)
             {
@@ -167,7 +175,7 @@ if(currentAbility == 1 && swap != 1)
             }
             playerItems[currentAbility].SetActive(true);
             highlights[currentAbility].SetActive(true);
-            uiSlot[currentAbility].transform.localScale *= 1.25f;
+            uiSlot[currentAbility].transform.localScale = largeSize;
         }
     }
 
@@ -177,17 +185,12 @@ if(currentAbility == 1 && swap != 1)
     private void OnEnable()
     {
         actions.Enable();
-#if UNITY_EDITOR
 
         // This is the item swapping section
         actions.Player.Item1.performed += ctx => AbilitySwap(0);
         actions.Player.Item2.performed += ctx => AbilitySwap(1);
         actions.Player.Item3.performed += ctx => AbilitySwap(2);
-#else
-        actions.Player.Item1.performed += ctx => AbilitySwap(1);
-        actions.Player.Item2.performed += ctx => AbilitySwap(0);
-        actions.Player.Item3.performed += ctx => AbilitySwap(2);
-#endif
+
 
         actions.Player.ItemScroll.performed += ctx => SecondAbilitySwap((int)ctx.ReadValue<float>() / Mathf.Abs((int)ctx.ReadValue<float>()));
     }

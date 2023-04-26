@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 4001599602473243655}
   - component: {fileID: 2071675393816635436}
   m_Layer: 5
-  m_Name: Item2 Highlight
+  m_Name: Tool2 Highlight
   m_TagString: ItemSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 8489768402471321423}
   - component: {fileID: 4681375669307233007}
   m_Layer: 5
-  m_Name: Item1 Highlight
+  m_Name: Tool1 Highlight
   m_TagString: ItemSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 1731844751544868748}
   - component: {fileID: 4858727002431699356}
   m_Layer: 5
-  m_Name: Item3 Highlight
+  m_Name: Tool3 Highlight
   m_TagString: ItemSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
