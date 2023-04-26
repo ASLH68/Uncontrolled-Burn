@@ -5132,6 +5132,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7415333637417182410, guid: adc158633e2c03448911dfa81577db4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7552492505189358165, guid: adc158633e2c03448911dfa81577db4a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -8091,7 +8096,7 @@ PrefabInstance:
     - target: {fileID: 7477768680715726319, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7781495
+      value: 1.7774566
       objectReference: {fileID: 0}
     - target: {fileID: 8897768473504843916, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
@@ -8157,7 +8162,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerItems.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1399073320}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1539fa49a79e5fe49a6bf43cc34d6b75, type: 3}
 --- !u!114 &1399073319 stripped
@@ -8172,6 +8177,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1399073320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8355000727942587115, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+    type: 3}
+  m_PrefabInstance: {fileID: 1399073318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1413380649
 GameObject:
   m_ObjectHideFlags: 0
@@ -11984,7 +11995,7 @@ PrefabInstance:
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.47
+      value: 23.54
       objectReference: {fileID: 0}
     - target: {fileID: 2900338496590834056, guid: de9454c11bce5a74d88ac51b0d111475,
         type: 3}
@@ -12293,8 +12304,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.972549, g: 0.9607843, b: 0.8784314, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 2.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

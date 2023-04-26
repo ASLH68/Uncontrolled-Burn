@@ -62,7 +62,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7781495, y: 1}
+    m_SensorSize: {x: 1.7774566, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -298,6 +298,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5658496815329386073}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4143511214726170055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8577019319273839518, guid: 2147f27eabdb1ea4aab39a3a6d14ceb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5658496815329386073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8355000727942587115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4428701146932509874, guid: 2147f27eabdb1ea4aab39a3a6d14ceb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5658496815329386073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8363867909427779129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -305,6 +317,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8897768473504843919}
     m_Modifications:
+    - target: {fileID: 724115202682735718, guid: 1f90b50c13e5c7641b6b871877527c8b,
+        type: 3}
+      propertyPath: playerItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 724115202682735718, guid: 1f90b50c13e5c7641b6b871877527c8b,
         type: 3}
       propertyPath: highlights.Array.data[0]
@@ -322,9 +339,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 724115202682735718, guid: 1f90b50c13e5c7641b6b871877527c8b,
         type: 3}
+      propertyPath: playerItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 7139789685459598558}
+    - target: {fileID: 724115202682735718, guid: 1f90b50c13e5c7641b6b871877527c8b,
+        type: 3}
+      propertyPath: playerItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 8355000727942587115}
+    - target: {fileID: 724115202682735718, guid: 1f90b50c13e5c7641b6b871877527c8b,
+        type: 3}
       propertyPath: playerItems.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4143511214726170055}
     - target: {fileID: 724115202682735723, guid: 1f90b50c13e5c7641b6b871877527c8b,
         type: 3}
       propertyPath: _layerMask.m_Bits
@@ -441,6 +468,12 @@ Transform:
 --- !u!4 &5583613867600029052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4138410818117432133, guid: 1f90b50c13e5c7641b6b871877527c8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8363867909427779129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7139789685459598558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1659520837715913447, guid: 1f90b50c13e5c7641b6b871877527c8b,
     type: 3}
   m_PrefabInstance: {fileID: 8363867909427779129}
   m_PrefabAsset: {fileID: 0}
