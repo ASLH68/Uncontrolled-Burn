@@ -172,6 +172,7 @@ MonoBehaviour:
   _isOnFire: 0
   OriginalColor: {r: 0, g: 0, b: 0, a: 0}
   _litMaterial: {fileID: 2100000, guid: 1caeb2ee1ec901c499261ecb7e39b0d6, type: 2}
+  smoke: {fileID: 3471788057187540180, guid: fb16f08aea900fe45b99a16b88418610, type: 3}
 --- !u!54 &3739861044206010738
 Rigidbody:
   m_ObjectHideFlags: 0
