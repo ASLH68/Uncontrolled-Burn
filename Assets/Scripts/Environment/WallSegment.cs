@@ -34,6 +34,7 @@ public class WallSegment : MonoBehaviour
     public Color OriginalColor;
     [SerializeField] Material _litMaterial;
     public Material LitMaterial => _litMaterial;
+    public Material LitMaterialBig;
     //AudioSource _audioSource;
 
     /// <summary>
