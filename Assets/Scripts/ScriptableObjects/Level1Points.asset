@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ac3b60d8f3cd440889933acd8ff335, type: 3}
   m_Name: Level1Points
   m_EditorClassIdentifier: 
+  _levelNum: 1
   _defaultScore: 100
   _pointsPerBurntTree: 2
   _pointsPerTreesChopped: 1
@@ -24,3 +25,4 @@ MonoBehaviour:
   _CPoints: 70
   _DPoints: 60
   _FPoints: 0
+  _finalGrade: 0

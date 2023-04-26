@@ -16,42 +16,50 @@ using UnityEngine.SocialPlatforms.Impl;
 [CreateAssetMenu(fileName = "Star Rating", menuName = "Star Rating")]
 public class LevelPoints : ScriptableObject
 {
-    [SerializeField] [Tooltip("Initial Score")]
+    [SerializeField] int _levelNum;
+
+    [SerializeField]
+    [Tooltip("Initial Score")]
     private int _defaultScore = 100;   // Starting / Max points
 
     private int _treesBurnt;   // num trees destroyed by fire
     private int _treesChopped; // num trees chopped
 
-    [SerializeField][Tooltip("Points deducted for every tree burnt")]
+    [SerializeField]
+    [Tooltip("Points deducted for every tree burnt")]
     private int _pointsPerBurntTree;    // points lost per tree
 
-    [SerializeField] [Tooltip("Points that will be deducted if the tree chopped threshhold is met")] 
+    [SerializeField]
+    [Tooltip("Points that will be deducted if the tree chopped threshhold is met")]
     private int _pointsPerTreesChopped = 0;
 
-    [SerializeField] [Tooltip("number of trees that must be destroyed by an axe in order to lose x amount of points")]
+    [SerializeField]
+    [Tooltip("number of trees that must be destroyed by an axe in order to lose x amount of points")]
     private int _treesChoppedThreshhold = 0;
-    
-    [SerializeField] [Tooltip("Points that will be deducted if the time threshhold is met")] 
+
+    [SerializeField]
+    [Tooltip("Points that will be deducted if the time threshhold is met")]
     private int _pointsPerTimeMet = 10;
 
-    [SerializeField] [Tooltip("Every time the player plays for this time, they lose x amount of points")]
+    [SerializeField]
+    [Tooltip("Every time the player plays for this time, they lose x amount of points")]
     private float _timeThreshhold = 30;
 
-    [Header("Minimum Points to Earn Grade")] 
+    [Header("Minimum Points to Earn Grade")]
     [SerializeField] int _SPoints = 100;
     [SerializeField] int _APoints = 90;
     [SerializeField] int _BPoints = 80;
     [SerializeField] int _CPoints = 70;
-    [SerializeField] int _DPoints = 60 ;
+    [SerializeField] int _DPoints = 60;
     [SerializeField] int _FPoints = 0;
 
-    private Grades _finalGrade = Grades.I; // Final grade based on score earned
+    [SerializeField] private Grades _finalGrade; // Final grade based on score earned
     public Grades FinalGrade => _finalGrade;
 
-    private bool _hasCompletedLvl = false; // If player has completed the level
+    //private bool _hasCompletedLvl = false; // If player has completed the level
 
     private int _score;     // Final score
-    
+
     public int TreesChoppedScore { get; private set; } // Score lost to trees chopped
     public int TreesBurntScore { get; private set; }   // Score lost to trees burnt
     public int TreesChoppedThreshhold => _treesChoppedThreshhold;
@@ -61,17 +69,12 @@ public class LevelPoints : ScriptableObject
     public int TreesBurnt => _treesBurnt;
     public int TreesChopped => _treesChopped;
 
-    private void Awake()
-    {
-        _score = _defaultScore;
-    }
-
     /// <summary>
     /// All possible grades
     /// </summary>
     public enum Grades
     {
-        S, A, B, C, D , F, I
+        X, S, A, B, C, D, F
     }
 
     /// <summary>
@@ -95,6 +98,11 @@ public class LevelPoints : ScriptableObject
     /// </summary>
     public void CalculateScore()
     {
+        //Resets to initial scores
+        _score = _defaultScore;
+        _finalGrade = Grades.X;
+
+
         TreesBurntScore = _treesBurnt * _pointsPerBurntTree;
         _score -= TreesBurntScore;
 
@@ -118,12 +126,13 @@ public class LevelPoints : ScriptableObject
         }
 
         // Prevents score from going negative
-        if(_score < 0)
+        if (_score < 0)
         {
             _score = 0;
         }
 
         CalculateGrade();
+        ScoreManager.main.SetGrade(_levelNum - 1, _finalGrade);
     }
 
     private void CalculateGrade()
@@ -145,15 +154,19 @@ public class LevelPoints : ScriptableObject
 
         if (_score >= _SPoints)
             _finalGrade = Grades.S;
-
     }
 
     public void ResetStats()
     {
+        Debug.Log(this.name + "reset");
+
+        GameController.main.CurrentTimer.ResetTime();
+
+        TreesChoppedScore = 0;
+        TreesBurntScore = 0;
         _treesBurnt = 0;
         _treesChopped = 0;
         _score = _defaultScore;
-        GameController.main.CurrentTimer.ResetTime();
     }
 
     /// <summary>
@@ -161,12 +174,6 @@ public class LevelPoints : ScriptableObject
     /// </summary>
     private void OnDisable()
     {
-        TreesChoppedScore = 0;
-        TreesBurntScore = 0;
-        _treesBurnt = 0;
-        _treesBurnt = 0;
-        _score = _defaultScore;
-        _finalGrade = Grades.I;
-        _hasCompletedLvl = false;
+        Debug.Log(this.name + " disabled");
     }
 }

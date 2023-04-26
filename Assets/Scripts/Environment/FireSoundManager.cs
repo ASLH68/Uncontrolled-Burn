@@ -37,7 +37,7 @@ public class FireSoundManager : MonoBehaviour
             if (i.GetComponent<WallSegment>().IsOnFire)
             {
                 _treesOnFire++;
-                Debug.Log("trees");
+                //Debug.Log("trees");
             }
 
         }
