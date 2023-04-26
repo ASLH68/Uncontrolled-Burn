@@ -3415,6 +3415,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1548273349}
     m_Modifications:
+    - target: {fileID: 7188041823627068005, guid: 4889f5a34e125404986349d6e578ced4,
+        type: 3}
+      propertyPath: _litMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: d131fb8d76128494a866691316e9b9f0, type: 2}
     - target: {fileID: 7638039748511265842, guid: 4889f5a34e125404986349d6e578ced4,
         type: 3}
       propertyPath: m_RootOrder
@@ -4968,18 +4973,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0271df749728104eac22c3d897fd8ce, type: 3}
---- !u!114 &777805226 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3208336595033530397, guid: adc158633e2c03448911dfa81577db4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 792524423}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &792524423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8077,7 +8070,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _uiResistanceUses
       value: 
-      objectReference: {fileID: 777805226}
+      objectReference: {fileID: 0}
     - target: {fileID: 7139789685459598557, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: _fpsCon
