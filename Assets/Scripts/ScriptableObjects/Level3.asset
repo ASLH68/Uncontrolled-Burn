@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelNum: 3
   _defaultScore: 100
-  _pointsPerBurntTree: 2
-  _pointsPerTreesChopped: 1
-  _treesChoppedThreshhold: 2
-  _pointsPerTimeMet: 10
-  _timeThreshhold: 15
+  _pointsPerBurntTree: 1
+  _pointsPerTreesChopped: 3
+  _treesChoppedThreshhold: 3
+  _pointsPerTimeMet: 5
+  _timeThreshhold: 20
   _SPoints: 100
   _APoints: 90
   _BPoints: 80
   _CPoints: 70
   _DPoints: 60
   _FPoints: 0
-  _finalGrade: 0
+  _finalGrade: 3
