@@ -17,12 +17,17 @@ public class Flamethrower : MonoBehaviour
 
     PlayerControls playerActions;
 
+    private Vector3 flameRegSize;
+    private Vector3 flameSmallSize;
+
     /// <summary>
     /// Grabs a playercontrols map, tbh idk what this actually does...
     /// </summary>
     private void Awake()
     {
         playerActions = new PlayerControls();
+
+        flameRegSize = gameObject.transform.localScale;
     }
 
     // Start is called before the first frame update
@@ -69,6 +74,13 @@ public class Flamethrower : MonoBehaviour
         playerActions.Enable();
 
         playerActions.Player.AbilityStartAndRelease.performed += ctx => WillItFire();
+
+        // Fixes the player hopping over trees by cycling tools really fast bug
+        gameObject.transform.localScale = new Vector3(.1f, .1f, .1f);
+        while(gameObject.transform.localScale.x < flameRegSize.x)
+        {
+            gameObject.transform.localScale += new Vector3(.1f, .1f, .1f);
+        }
     }
 
     /// <summary>

@@ -214,6 +214,10 @@ public class WallSegment : MonoBehaviour
 
         smokeObj = Instantiate(smoke, transform.position + new Vector3(0, GetComponent<Renderer>().bounds.size.y/2),
             Quaternion.identity).gameObject;
+        if(GetComponent<Renderer>().bounds.size.y > 5f)
+        {
+            smokeObj.transform.localScale *= 2.5f;
+        }
 
         while (_isOnFire)
         {
