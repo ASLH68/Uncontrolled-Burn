@@ -18477,6 +18477,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.30383444
       objectReference: {fileID: 0}
+    - target: {fileID: 4708289637933391811, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
+        type: 3}
+      propertyPath: _resistanceUses
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5059560630417031105, guid: 1539fa49a79e5fe49a6bf43cc34d6b75,
         type: 3}
       propertyPath: JumpHeight
